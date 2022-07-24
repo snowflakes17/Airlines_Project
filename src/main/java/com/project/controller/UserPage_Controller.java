@@ -16,7 +16,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.scene.Node;
 
-public class UserPage_Controller{
+public class UserPage_Controller implements Initializable{
 
     private Scene scene;
     private Stage stage;
@@ -48,6 +48,12 @@ public class UserPage_Controller{
 
     public void changeName(Customer who) {
          user_Name.setText(String.valueOf(who.getUserid()));
+    }
+
+    @Override
+    public void initialize(URL arg0, ResourceBundle arg1) {
+        
+        
     }
 
 }

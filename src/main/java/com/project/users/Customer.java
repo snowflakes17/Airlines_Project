@@ -1,23 +1,26 @@
 package com.project.users;
 
 import java.text.DateFormat;
-import java.util.Date;
+import java.util.ArrayList;
 
 public class Customer implements User {
     private int userId;
     private String firstName;
     private String lastName;
+    private String password;
     private DateFormat dateOfBirth;
     private String countryOfCitiznship;
     private String countryOfResidence;
     private DateFormat createdAt;
     private DateFormat updatedAt;
     private String passportNumber;
+    private ArrayList Flights;
 
-    public Customer(int userId, String firstName, String lastName, DateFormat dateOfBirth,String countryOfCitiznship, String countryOfResidence,String passportNumber) {
+    public Customer(int userId,String password, String firstName, String lastName, DateFormat dateOfBirth,String countryOfCitiznship, String countryOfResidence,String passportNumber) {
         this.userId = userId;
         this.firstName = firstName;
         this.lastName = lastName;
+        this.password = password;
         this.dateOfBirth = dateOfBirth;
         this.countryOfCitiznship = countryOfCitiznship;
         this.countryOfResidence = countryOfResidence;
@@ -47,12 +50,12 @@ public class Customer implements User {
     }
     @Override
     public void changeUsername(String newUsername){
-        System.out.println("newUsername");
+        this.firstName = newUsername;
     }
 
     @Override
     public void changePass(String newPass) {
-        System.out.println("newPass");
+        this.password = newPass;
     }
 
     @Override

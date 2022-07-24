@@ -21,7 +21,7 @@ public class Login_Controller {
     private Parent root;
     private Stage stage;
 
-    public void switchToUserPage(ActionEvent event) throws IOException{
+    public void switchPage(ActionEvent event) throws IOException{
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
@@ -68,7 +68,7 @@ public class Login_Controller {
         root = loader.load();
 
         try {
-            switchToUserPage(event);
+            switchPage(event);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -76,8 +76,14 @@ public class Login_Controller {
     }
 
     @FXML
-    void Sign_up_Scene(ActionEvent event) {
-        System.out.println("check");
+    void Sign_up_Scene(ActionEvent event) throws IOException{
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("SignUp.fxml"));
+        root = loader.load();
+        try {
+            switchPage(event);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML

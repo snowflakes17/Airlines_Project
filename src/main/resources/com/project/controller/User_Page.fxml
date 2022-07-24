@@ -1,24 +1,102 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
+<?import io.github.palexdev.materialfx.controls.MFXButton?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.paint.Color?>
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="605.0" prefWidth="900.0" stylesheets="@Assests/Fx.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.project.controller.UserPage_Controller">
    <left>
-      <AnchorPane id="main_user" prefHeight="600.0" prefWidth="631.0" stylesheets="@Assests/Fx.css" BorderPane.alignment="CENTER" />
+      <AnchorPane id="main_user" prefHeight="605.0" prefWidth="615.0" style="-fx-background-color: #F2994A;" stylesheets="@Assests/Fx.css" BorderPane.alignment="CENTER">
+         <effect>
+            <DropShadow blurType="GAUSSIAN" height="0.24" radius="6.972499999999999" spread="0.13" width="29.65">
+               <color>
+                  <Color opacity="0.7241379022598267" />
+               </color>
+            </DropShadow>
+         </effect>
+         <children>
+            <ImageView fitHeight="61.0" fitWidth="552.0" layoutX="32.0" layoutY="31.0">
+               <image>
+                  <Image url="@Assests/Rectangle%2011.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="46.0" fitWidth="88.0" layoutX="258.0" layoutY="36.0">
+               <image>
+                  <Image url="@Assests/Group%205.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="47.0" fitWidth="90.0" layoutX="425.0" layoutY="36.0">
+               <image>
+                  <Image url="@Assests/Group%204.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="44.0" fitWidth="85.0" layoutX="90.0" layoutY="38.0">
+               <image>
+                  <Image url="@Assests/Group%204%20(1).png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="192.0" layoutY="238.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fitHeight="403.0" fitWidth="546.0" layoutX="34.0" layoutY="112.0">
+               <image>
+                  <Image url="@Assests/Rectangle%2018.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="49.0" fitWidth="255.0" layoutX="93.0" layoutY="155.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fitHeight="90.0" fitWidth="480.0" layoutX="64.0" layoutY="167.0">
+               <image>
+                  <Image url="@Assests/Departure%20Form.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="52.0" fitWidth="480.0" layoutX="64.0" layoutY="268.0">
+               <image>
+                  <Image url="@Assests/Select%20Depart.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="53.0" fitWidth="480.0" layoutX="64.0" layoutY="329.0">
+               <image>
+                  <Image url="@Assests/Passengers.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="53.0" fitWidth="480.0" layoutX="63.0" layoutY="389.0">
+               <image>
+                  <Image url="@Assests/Type.png" />
+               </image>
+            </ImageView>
+            <MFXButton layoutX="241.0" layoutY="453.0" prefHeight="39.0" prefWidth="119.0" styleClass="btn" text="Sign Up" />
+            <Label layoutX="68.0" layoutY="126.0" prefHeight="33.0" prefWidth="128.0" text="Search Flights" />
+         </children></AnchorPane>
    </left>
    <right>
       <AnchorPane prefHeight="600.0" prefWidth="274.0" style="-fx-background-color: beige;" BorderPane.alignment="CENTER">
          <children>
-            <Button id="logout" fx:id="Logout" layoutX="180.0" layoutY="545.0" mnemonicParsing="false" onAction="#Logout" prefHeight="29.0" prefWidth="63.0" styleClass="btn" stylesheets="@Assests/Fx.css" text="Logout">
-               <font>
-                  <Font size="11.0" />
-               </font>
-            </Button>
-            <Label fx:id="user_Name" accessibleText="Name Will Be Here" layoutX="81.0" layoutY="221.0" prefHeight="45.0" prefWidth="114.0" text="Name Will Be here" textOverrun="CENTER_WORD_ELLIPSIS" underline="true" />
+            <Label fx:id="user_Name" accessibleText="Name Will Be Here" layoutX="93.0" layoutY="255.0" prefHeight="26.0" prefWidth="154.0" stylesheets="@Assests/Fx.css" text="Name Will Be here" textOverrun="CENTER_WORD_ELLIPSIS" />
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="31.0" layoutY="66.0" pickOnBounds="true" preserveRatio="true" styleClass="profile" />
+            <ImageView fitHeight="179.0" fitWidth="180.0" layoutX="47.0" layoutY="63.0">
+               <image>
+                  <Image url="@Assests/Profile.png" />
+               </image>
+               <effect>
+                  <DropShadow height="15.07" radius="7.035" width="15.07">
+                     <color>
+                        <Color opacity="0.6781609058380127" />
+                     </color>
+                  </DropShadow>
+               </effect>
+            </ImageView>
+            <Label layoutX="17.0" layoutY="255.0" prefHeight="27.0" prefWidth="68.0" styleClass="label-main" stylesheets="@Assests/Fx.css" text="Name :" textOverrun="CENTER_WORD_ELLIPSIS" />
+            <Label fx:id="user_Name1" accessibleText="Name Will Be Here" layoutX="93.0" layoutY="290.0" prefHeight="26.0" prefWidth="154.0" stylesheets="@Assests/Fx.css" text="Email@gmail.com" textOverrun="CENTER_WORD_ELLIPSIS" />
+            <Label layoutX="17.0" layoutY="290.0" prefHeight="27.0" prefWidth="68.0" styleClass="label-main" stylesheets="@Assests/Fx.css" text="Email :" textOverrun="CENTER_WORD_ELLIPSIS" />
+            <ImageView fitHeight="176.0" fitWidth="200.0" layoutX="69.0" layoutY="429.0">
+               <image>
+                  <Image url="@Assests/clarity_plane-line.png" />
+               </image>
+            </ImageView>
+            <MFXButton id="logout" fx:id="Logout" layoutX="166.0" layoutY="335.0" onAction="#Logout" prefHeight="40.0" prefWidth="80.0" style="-fx-font-size: 17;" styleClass="btn" text="Logout" />
          </children>
       </AnchorPane>
    </right>

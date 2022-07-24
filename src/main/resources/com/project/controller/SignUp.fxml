@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import io.github.palexdev.materialfx.controls.MFXButton?>
+<?import io.github.palexdev.materialfx.controls.MFXDatePicker?>
+<?import io.github.palexdev.materialfx.controls.MFXPasswordField?>
+<?import io.github.palexdev.materialfx.controls.MFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="915.0" style="-fx-background-color: F2994A;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.project.controller.SignUp_Controller">
+   <top>
+      <AnchorPane prefHeight="21.0" prefWidth="950.0" BorderPane.alignment="CENTER" />
+   </top>
+   <center>
+      <AnchorPane id="signup" prefHeight="557.0" prefWidth="806.0" stylesheets="@Assests/Fx.css" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets left="15.0" right="50.0" top="50.0" />
+         </BorderPane.margin>
+         <children>
+            <MFXButton fx:id="SignUp" layoutX="543.0" layoutY="441.0" onAction="#SignUp" prefHeight="45.0" prefWidth="122.0" style="-fx-font-size: 19;" styleClass="btn" text="Sign Up">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </MFXButton>
+            <MFXTextField fx:id="email" floatMode="BORDER" floatingText="Email" layoutX="206.0" layoutY="267.0" prefHeight="50.0" prefWidth="460.0" style="-fx-text-fill: black;" styleClass="signup-txtfield">
+               <textFill>
+                  <Color red="1.0" green="1.0" blue="1.0" opacity="0.8700000047683716" />
+               </textFill>
+            </MFXTextField>
+            <MFXTextField fx:id="FullName" floatMode="BORDER" floatingText="Full Name" layoutX="206.0" layoutY="96.0" prefHeight="50.0" prefWidth="460.0" style="-fx-text-fill: black;" styleClass="signup-txtfield" stylesheets="@Assests/Fx.css">
+               <font>
+                  <Font name="Poppins Medium" size="14.0" />
+               </font>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <textFill>
+                  <Color red="1.0" green="1.0" blue="1.0" opacity="0.8700000047683716" />
+               </textFill>
+            </MFXTextField>
+            <MFXDatePicker fx:id="BirthDate" floatMode="BORDER" floatingText="Date of Birth" layoutX="207.0" layoutY="350.0" style="-fx-text-fill: black;" styleClass="signup-txtfield" />
+            <MFXTextField fx:id="PassportNo" floatMode="BORDER" floatingText="Passport no." layoutX="460.0" layoutY="348.0" prefHeight="54.0" prefWidth="207.0" style="-fx-text-fill: black;" styleClass="signup-txtfield">
+               <textFill>
+                  <Color red="1.0" green="1.0" blue="1.0" opacity="0.8700000047683716" />
+               </textFill>
+            </MFXTextField>
+            <Label layoutX="379.0" layoutY="27.0" prefHeight="49.0" prefWidth="132.0" style="-fx-font-size: 32; -fx-text-fill: white;" styleClass="label-main" text="Sign Up" textFill="WHITE">
+               <font>
+                  <Font name="Poppins SemiBold" size="35.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="68.0" fitWidth="68.0" layoutX="407.0" layoutY="-67.0">
+               <image>
+                  <Image url="@Assests/Logo.png" />
+               </image>
+            </ImageView>
+            <MFXPasswordField fx:id="password" floatMode="BORDER" layoutX="204.0" layoutY="180.0" prefHeight="50.0" prefWidth="460.0" styleClass="signup-txtfield" />
+            <MFXButton fx:id="Back" layoutX="174.0" layoutY="35.0" minWidth="47.0" onAction="#backToLogin" prefHeight="33.0" prefWidth="61.0" text="Back" />
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>
