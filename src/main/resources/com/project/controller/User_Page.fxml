@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import io.github.palexdev.materialfx.controls.MFXButton?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -25,17 +31,17 @@
                   <Image url="@Assests/Rectangle%2011.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="46.0" fitWidth="88.0" layoutX="258.0" layoutY="36.0">
+            <ImageView fx:id="MyTrips" fitHeight="46.0" fitWidth="88.0" layoutX="258.0" layoutY="36.0">
                <image>
                   <Image url="@Assests/Group%205.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="47.0" fitWidth="90.0" layoutX="425.0" layoutY="36.0">
+            <ImageView fx:id="Checkin" fitHeight="47.0" fitWidth="90.0" layoutX="425.0" layoutY="36.0">
                <image>
                   <Image url="@Assests/Group%204.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="44.0" fitWidth="85.0" layoutX="90.0" layoutY="38.0">
+            <ImageView fx:id="Book" fitHeight="44.0" fitWidth="85.0" layoutX="90.0" layoutY="38.0">
                <image>
                   <Image url="@Assests/Group%204%20(1).png" />
                </image>
@@ -67,8 +73,24 @@
                   <Image url="@Assests/Type.png" />
                </image>
             </ImageView>
-            <MFXButton layoutX="241.0" layoutY="453.0" prefHeight="39.0" prefWidth="119.0" styleClass="btn" text="Sign Up" />
+            <MFXButton fx:id="Find_Flight" layoutX="241.0" layoutY="453.0" prefHeight="39.0" prefWidth="119.0" styleClass="btn" text="Find Flight" />
             <Label layoutX="68.0" layoutY="126.0" prefHeight="33.0" prefWidth="128.0" text="Search Flights" />
+            <TextField fx:id="Where_From" layoutX="132.0" layoutY="175.0" prefHeight="35.0" prefWidth="375.0" promptText="Where From" styleClass="text-fields" />
+            <TextField fx:id="Where_To" layoutX="132.0" layoutY="214.0" prefHeight="35.0" prefWidth="375.0" promptText="Where To" styleClass="text-fields" />
+            <DatePicker fx:id="Dapart_Date" layoutX="127.0" layoutY="269.0" prefHeight="45.0" prefWidth="390.0" promptText="Select Depart" style="-fx-background-color: rgba(225,225,225,0.25); fx-text-fill: white; -fx-border-width: 0;" styleClass="text-fields" stylesheets="@Assests/Fx.css" />
+            <RadioButton fx:id="Economy" layoutX="142.0" layoutY="335.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="110.0" selected="true" styleClass="radios" text="Economy">
+               <toggleGroup>
+                  <ToggleGroup fx:id="Type" />
+               </toggleGroup>
+            </RadioButton>
+            <RadioButton fx:id="Business" layoutX="274.0" layoutY="336.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="104.0" styleClass="radios" text="Business" toggleGroup="$Type" />
+            <RadioButton fx:id="Both" layoutX="403.0" layoutY="335.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="106.0" styleClass="radios" text="Both" toggleGroup="$Type" />
+            <MenuButton fx:id="No_of_people" layoutX="137.0" layoutY="395.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="369.0" styleClass="radios" text="MenuButton">
+              <items>
+                <MenuItem mnemonicParsing="false" text="Action 1" />
+                <MenuItem mnemonicParsing="false" text="Action 2" />
+              </items>
+            </MenuButton>
          </children></AnchorPane>
    </left>
    <right>
@@ -89,7 +111,7 @@
                </effect>
             </ImageView>
             <Label layoutX="17.0" layoutY="255.0" prefHeight="27.0" prefWidth="68.0" styleClass="label-main" stylesheets="@Assests/Fx.css" text="Name :" textOverrun="CENTER_WORD_ELLIPSIS" />
-            <Label fx:id="user_Name1" accessibleText="Name Will Be Here" layoutX="93.0" layoutY="290.0" prefHeight="26.0" prefWidth="154.0" stylesheets="@Assests/Fx.css" text="Email@gmail.com" textOverrun="CENTER_WORD_ELLIPSIS" />
+            <Label fx:id="Email" accessibleText="Name Will Be Here" layoutX="93.0" layoutY="290.0" prefHeight="26.0" prefWidth="154.0" stylesheets="@Assests/Fx.css" text="Email@gmail.com" textOverrun="CENTER_WORD_ELLIPSIS" />
             <Label layoutX="17.0" layoutY="290.0" prefHeight="27.0" prefWidth="68.0" styleClass="label-main" stylesheets="@Assests/Fx.css" text="Email :" textOverrun="CENTER_WORD_ELLIPSIS" />
             <ImageView fitHeight="176.0" fitWidth="200.0" layoutX="69.0" layoutY="429.0">
                <image>

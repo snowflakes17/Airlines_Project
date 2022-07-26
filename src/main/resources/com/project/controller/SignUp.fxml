@@ -28,28 +28,6 @@
                   <Font size="18.0" />
                </font>
             </MFXButton>
-            <MFXTextField fx:id="email" floatMode="BORDER" floatingText="Email" layoutX="206.0" layoutY="267.0" prefHeight="50.0" prefWidth="460.0" style="-fx-text-fill: black;" styleClass="signup-txtfield">
-               <textFill>
-                  <Color red="1.0" green="1.0" blue="1.0" opacity="0.8700000047683716" />
-               </textFill>
-            </MFXTextField>
-            <MFXTextField fx:id="FullName" floatMode="BORDER" floatingText="Full Name" layoutX="206.0" layoutY="96.0" prefHeight="50.0" prefWidth="460.0" style="-fx-text-fill: black;" styleClass="signup-txtfield" stylesheets="@Assests/Fx.css">
-               <font>
-                  <Font name="Poppins Medium" size="14.0" />
-               </font>
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
-               <textFill>
-                  <Color red="1.0" green="1.0" blue="1.0" opacity="0.8700000047683716" />
-               </textFill>
-            </MFXTextField>
-            <MFXDatePicker fx:id="BirthDate" floatMode="BORDER" floatingText="Date of Birth" layoutX="207.0" layoutY="350.0" style="-fx-text-fill: black;" styleClass="signup-txtfield" />
-            <MFXTextField fx:id="PassportNo" floatMode="BORDER" floatingText="Passport no." layoutX="460.0" layoutY="348.0" prefHeight="54.0" prefWidth="207.0" style="-fx-text-fill: black;" styleClass="signup-txtfield">
-               <textFill>
-                  <Color red="1.0" green="1.0" blue="1.0" opacity="0.8700000047683716" />
-               </textFill>
-            </MFXTextField>
             <Label layoutX="379.0" layoutY="27.0" prefHeight="49.0" prefWidth="132.0" style="-fx-font-size: 32; -fx-text-fill: white;" styleClass="label-main" text="Sign Up" textFill="WHITE">
                <font>
                   <Font name="Poppins SemiBold" size="35.0" />
@@ -60,8 +38,55 @@
                   <Image url="@Assests/Logo.png" />
                </image>
             </ImageView>
+            <MFXButton id="back" fx:id="Back" layoutX="171.0" layoutY="38.0" minHeight="20.0" minWidth="40.0" onAction="#backToLogin" prefHeight="32.0" prefWidth="40.0" style="-fx-background-color: none;" text=" " />
+            <ImageView disable="true" fitHeight="68.0" fitWidth="472.0" layoutX="198.0" layoutY="91.0" opacity="0.72">
+               <image>
+                  <Image url="@Assests/Bg-.png" />
+               </image>
+            </ImageView>
+            <MFXTextField fx:id="FullName" floatMode="BORDER" floatingText="Full Name" layoutX="205.0" layoutY="96.0" prefHeight="50.0" prefWidth="460.0" styleClass="signup-txtfield" stylesheets="@Assests/Fx.css">
+               <font>
+                  <Font name="Poppins Medium" size="14.0" />
+               </font>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <textFill>
+                  <Color red="1.0" green="1.0" blue="1.0" opacity="0.8700000047683716" />
+               </textFill>
+            </MFXTextField>
+            <ImageView disable="true" fitHeight="67.0" fitWidth="471.0" layoutX="198.0" layoutY="173.0" opacity="0.72">
+               <image>
+                  <Image url="@Assests/Bg-.png" />
+               </image>
+            </ImageView>
             <MFXPasswordField fx:id="password" floatMode="BORDER" floatingText="password" layoutX="204.0" layoutY="180.0" prefHeight="50.0" prefWidth="460.0" styleClass="signup-txtfield" />
-            <MFXButton fx:id="Back" layoutX="174.0" layoutY="35.0" minWidth="47.0" onAction="#backToLogin" prefHeight="33.0" prefWidth="61.0" text="Back" />
+            <ImageView disable="true" fitHeight="67.0" fitWidth="471.0" layoutX="201.0" layoutY="260.0" opacity="0.72">
+               <image>
+                  <Image url="@Assests/Bg-.png" />
+               </image>
+            </ImageView>
+            <MFXTextField fx:id="email" floatMode="BORDER" floatingText="Email" layoutX="206.0" layoutY="267.0" prefHeight="50.0" prefWidth="460.0" style="-fx-text-fill: black;" styleClass="signup-txtfield">
+               <textFill>
+                  <Color red="1.0" green="1.0" blue="1.0" opacity="0.8700000047683716" />
+               </textFill>
+            </MFXTextField>
+            <ImageView disable="true" fitHeight="62.0" fitWidth="210.0" layoutX="202.0" layoutY="344.0" opacity="0.72">
+               <image>
+                  <Image url="@Assests/Bg-.png" />
+               </image>
+            </ImageView>
+            <MFXDatePicker fx:id="BirthDate" floatMode="BORDER" floatingText="Date of Birth" layoutX="207.0" layoutY="350.0" style="-fx-text-fill: black;" styleClass="signup-txtfield" />
+            <ImageView disable="true" fitHeight="65.0" fitWidth="215.0" layoutX="456.0" layoutY="343.0" opacity="0.72">
+               <image>
+                  <Image url="@Assests/Bg-.png" />
+               </image>
+            </ImageView>
+            <MFXTextField fx:id="PassportNo" floatMode="BORDER" floatingText="Passport no." layoutX="460.0" layoutY="348.0" prefHeight="54.0" prefWidth="207.0" style="-fx-text-fill: black;" styleClass="signup-txtfield">
+               <textFill>
+                  <Color red="1.0" green="1.0" blue="1.0" opacity="0.8700000047683716" />
+               </textFill>
+            </MFXTextField>
          </children>
       </AnchorPane>
    </center>
