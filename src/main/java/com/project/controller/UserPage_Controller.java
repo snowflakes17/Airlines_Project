@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import com.project.users.Customer;
+import com.project.objects.Customer;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -20,12 +20,20 @@ public class UserPage_Controller implements Initializable{
 
     private Scene scene;
     private Stage stage;
+    private Parent root;
 
     @FXML
     private Button Logout;
 
     @FXML
     Label user_Name;
+
+    public void switchPage(ActionEvent event) throws IOException{
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
 
     @FXML
     void Logout(ActionEvent event) {
@@ -39,15 +47,18 @@ public class UserPage_Controller implements Initializable{
     }
 
     public void switchToLogin(ActionEvent event) throws IOException{
-        Parent root = FXMLLoader.load(UserPage_Controller.class.getResource("Login.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("Login.fxml"));
+        root = loader.load();
+        try {
+            switchPage(event);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 
     public void changeName(Customer who) {
-         user_Name.setText(String.valueOf(who.getUserid()));
+         user_Name.setText(String.valueOf(who.getFirstName()));
     }
 
     @Override

@@ -1,22 +1,25 @@
-package com.project.users;
+package com.project.objects;
 
-import java.text.DateFormat;
+import lombok.Data;
+
+import java.time.LocalTime;
 import java.util.ArrayList;
-
+import java.util.Date;
+@Data
 public class Customer implements User {
-    private int userId;
+    private final int userId;
     private String firstName;
     private String lastName;
     private String password;
-    private DateFormat dateOfBirth;
+    private final Date dateOfBirth;
     private String countryOfCitiznship;
     private String countryOfResidence;
-    private DateFormat createdAt;
-    private DateFormat updatedAt;
-    private String passportNumber;
+    private final LocalTime createdAt;
+    private LocalTime updatedAt;
+    private final String passportNumber;
     private ArrayList Flights;
 
-    public Customer(int userId,String password, String firstName, String lastName, DateFormat dateOfBirth,String countryOfCitiznship, String countryOfResidence,String passportNumber) {
+    public Customer(int userId, String password, String firstName, String lastName, Date dateOfBirth, String countryOfCitiznship, String countryOfResidence, String passportNumber) {
         this.userId = userId;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -25,7 +28,7 @@ public class Customer implements User {
         this.countryOfCitiznship = countryOfCitiznship;
         this.countryOfResidence = countryOfResidence;
         this.passportNumber = passportNumber;
-        createdAt = DateFormat.getDateTimeInstance();
+        createdAt = LocalTime.now();
         updatedAt = createdAt;
     }
     @Override
@@ -52,7 +55,6 @@ public class Customer implements User {
     public void changeUsername(String newUsername){
         this.firstName = newUsername;
     }
-
     @Override
     public void changePass(String newPass) {
         this.password = newPass;
@@ -62,17 +64,6 @@ public class Customer implements User {
     public void showTrips() {
         System.out.println("Show");
     }
-
-    @Override
-    public int getUserid() {
-        return userId;
-    }
-
-    @Override
-    public String getFullname() {
-        return firstName + " " + lastName;
-    }
-
     @Override
     public boolean isAdmin() {
         return false;

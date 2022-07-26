@@ -1,25 +1,39 @@
 package com.project.controller;
 
+import io.github.palexdev.materialfx.controls.MFXButton;
+import javafx.animation.FadeTransition;
+import javafx.animation.ScaleTransition;
+import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.ResourceBundle;
 
-public class Login_Controller {
+public class Login_Controller implements Initializable {
 
     private Scene scene;
     private Parent root;
     private Stage stage;
+
+
+
 
     public void switchPage(ActionEvent event) throws IOException{
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -32,26 +46,64 @@ public class Login_Controller {
     private ImageView Choose_Admin;
 
     @FXML
+    private ImageView passwd_bg;
+    @FXML
     private ImageView Choose_User;
 
     @FXML
-    private Button Login;
+    private ImageView usr_name_bg;
+    @FXML
+    private MFXButton Login;
 
     @FXML
     private Button Sign_Up;
 
     @FXML
-    private Button frgt;
-
-    @FXML
     private PasswordField password_field;
 
     @FXML
+    private ImageView Login_Lbl;
+    @FXML
     private TextField uname_field;
 
+    void animation(boolean check){
+        int x = check ? 70 : -72;
+        Node y = check ? Choose_Admin : Choose_User;
+        List<Node> Fade = new ArrayList<Node>();
+        Fade.add(usr_name_bg);
+        Fade.add(passwd_bg);
+        Fade.add(password_field);
+        Fade.add(uname_field);
+        Fade.add(Login);
+        Fade.add(Sign_Up);
+        for (Node i :
+                Fade) {
+            i.setVisible(true);
+            FadeTransition fd = new FadeTransition(Duration.millis(1200),i);
+            fd.setFromValue(0);
+            fd.setToValue(1);
+            fd.playFromStart();
+        }
+        TranslateTransition lbl = new TranslateTransition(Duration.millis(1000),Login_Lbl);
+        lbl.setFromY(y.getTranslateY());
+        lbl.setToY(y.getTranslateY() - 60);
+        lbl.playFromStart();
+        TranslateTransition s = new TranslateTransition(Duration.millis(600),y);
+        s.setFromY(y.getTranslateY());
+        s.setToY(y.getTranslateY() - 80);
+        s.playFromStart();
+        TranslateTransition sa = new TranslateTransition(Duration.millis(600),y);
+        sa.setDelay(Duration.millis(600));
+        sa.setFromX(y.getTranslateX());
+        sa.setToX(y.getTranslateX() - x);
+        sa.playFromStart();
+        y.setDisable(true);
+    }
     @FXML
     void Admin(MouseEvent event) {
-        System.out.println("check");
+        animation(true);
+        Choose_Admin.setId("static");
+        Choose_User.setVisible(false);
     }
 
     @FXML
@@ -88,7 +140,17 @@ public class Login_Controller {
 
     @FXML
     void User(MouseEvent event) {
-        System.out.println("check");
+        animation(false);
+        Choose_User.setId("static");
+        Choose_Admin.setVisible(false);
     }
-    
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+
+
+
+    }
+
+
 }

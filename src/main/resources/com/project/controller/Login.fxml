@@ -29,12 +29,12 @@
                   <Image url="@Assests/Logo.png" />
                </image>
             </ImageView>
-            <ImageView disable="true" fitHeight="22.5" fitWidth="94.5" layoutX="193.5" layoutY="147.0">
+            <ImageView fx:id="Login_Lbl" disable="true" fitHeight="22.5" fitWidth="94.5" layoutX="201.5" layoutY="209.0">
                <image>
                   <Image url="@Assests/LOGIN.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="Choose_User" fitHeight="145.5" fitWidth="112.5" layoutX="111.0" layoutY="192.0" onMouseClicked="#User">
+            <ImageView fx:id="Choose_User" fitHeight="145.5" fitWidth="112.5" layoutX="119.0" layoutY="261.0" onMouseClicked="#User" styleClass="users">
                <image>
                   <Image url="@Assests/USER.png" />
                </image>
@@ -42,7 +42,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </ImageView>
-            <ImageView fx:id="Choose_Admin" fitHeight="145.5" fitWidth="112.5" layoutX="253.5" layoutY="192.0" onMouseClicked="#Admin">
+            <ImageView fx:id="Choose_Admin" fitHeight="145.5" fitWidth="112.5" layoutX="261.5" layoutY="261.0" onMouseClicked="#Admin" styleClass="users">
                <image>
                   <Image url="@Assests/ADMIN.png" />
                </image>
@@ -50,32 +50,31 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </ImageView>
-            <ImageView disable="true" fitHeight="45.0" fitWidth="345.0" layoutX="67.5" layoutY="352.5">
+            <ImageView fx:id="usr_name_bg" disable="true" fitHeight="45.0" fitWidth="345.0" layoutX="67.5" layoutY="336.5" opacity="0.0" visible="false">
                <image>
                   <Image url="@Assests/Username.png" />
                </image>
             </ImageView>
-            <ImageView disable="true" fitHeight="45.0" fitWidth="345.0" layoutX="67.5" layoutY="408.0">
+            <ImageView fx:id="passwd_bg" disable="true" fitHeight="45.0" fitWidth="345.0" layoutX="67.5" layoutY="392.0" opacity="0.0" visible="false">
                <image>
                   <Image url="@Assests/Password.png" />
                </image>
             </ImageView>
-            <TextField fx:id="uname_field" blendMode="MULTIPLY" layoutX="117.0" layoutY="355.5" onAction="#Login" prefHeight="39.0" prefWidth="288.0" promptText=" username" styleClass="text-field" stylesheets="@Assests/Fx.css">
+            <TextField fx:id="uname_field" blendMode="MULTIPLY" layoutX="117.0" layoutY="339.5" onAction="#Login" opacity="0.0" prefHeight="39.0" prefWidth="288.0" promptText=" username" styleClass="text-field" stylesheets="@Assests/Fx.css" visible="false">
                <font>
                   <Font name="Montserrat Light Italic" size="10.0" />
                </font></TextField>
-            <PasswordField fx:id="password_field" layoutX="117.0" layoutY="411.0" onAction="#Login" prefHeight="39.0" prefWidth="288.0" promptText=" password" styleClass="text-field" stylesheets="@Assests/Fx.css">
+            <PasswordField fx:id="password_field" layoutX="117.0" layoutY="395.0" onAction="#Login" opacity="0.0" prefHeight="39.0" prefWidth="288.0" promptText=" password" styleClass="text-field" stylesheets="@Assests/Fx.css" visible="false">
                <font>
-                  <Font name="Montserrat Light Italic" size="13.0" />
+                  <Font name="Poppins Black" size="13.0" />
                </font>
             </PasswordField>
-            <Button id="frgt" fx:id="frgt" layoutX="68.0" layoutY="489.0" mnemonicParsing="false" onAction="#Forgot" style="-fx-background-color: none;" text="Forgot passord ?" textFill="WHITE" />
-            <Button fx:id="Sign_Up" layoutX="205.0" layoutY="520.0" mnemonicParsing="false" onAction="#Sign_up_Scene" style="-fx-background-color: none;" text="Sign up" textFill="WHITE">
+            <Button id="sign_up" fx:id="Sign_Up" layoutX="202.0" layoutY="499.0" mnemonicParsing="false" onAction="#Sign_up_Scene" text="Sign up" textFill="WHITE" visible="false">
                <font>
-                  <Font name="Poppins SemiBold" size="18.0" />
+                  <Font name="Poppins SemiBold" size="20.0" />
                </font>
             </Button>
-            <MFXButton fx:id="Login" defaultButton="true" layoutX="335.0" layoutY="465.0" onAction="#Login" prefHeight="32.0" prefWidth="77.0" rippleAnimateBackground="false" rippleAnimationSpeed="2.0" rippleColor="BLACK" styleClass="btn" text="Login" />
+            <MFXButton fx:id="Login" defaultButton="true" layoutX="335.0" layoutY="449.0" onAction="#Login" prefHeight="32.0" prefWidth="77.0" rippleAnimateBackground="false" rippleAnimationSpeed="2.0" rippleColor="BLACK" styleClass="btn" text="Login" visible="false" />
          </children>
       </AnchorPane>
    </left>

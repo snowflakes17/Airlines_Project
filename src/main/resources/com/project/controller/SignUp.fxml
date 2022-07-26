@@ -18,7 +18,7 @@
       <AnchorPane prefHeight="21.0" prefWidth="950.0" BorderPane.alignment="CENTER" />
    </top>
    <center>
-      <AnchorPane id="signup" prefHeight="557.0" prefWidth="806.0" stylesheets="@Assests/Fx.css" BorderPane.alignment="CENTER">
+      <AnchorPane id="signup" prefHeight="501.0" prefWidth="802.0" stylesheets="@Assests/Fx.css" BorderPane.alignment="CENTER">
          <BorderPane.margin>
             <Insets left="15.0" right="50.0" top="50.0" />
          </BorderPane.margin>
@@ -60,7 +60,7 @@
                   <Image url="@Assests/Logo.png" />
                </image>
             </ImageView>
-            <MFXPasswordField fx:id="password" floatMode="BORDER" layoutX="204.0" layoutY="180.0" prefHeight="50.0" prefWidth="460.0" styleClass="signup-txtfield" />
+            <MFXPasswordField fx:id="password" floatMode="BORDER" floatingText="password" layoutX="204.0" layoutY="180.0" prefHeight="50.0" prefWidth="460.0" styleClass="signup-txtfield" />
             <MFXButton fx:id="Back" layoutX="174.0" layoutY="35.0" minWidth="47.0" onAction="#backToLogin" prefHeight="33.0" prefWidth="61.0" text="Back" />
          </children>
       </AnchorPane>

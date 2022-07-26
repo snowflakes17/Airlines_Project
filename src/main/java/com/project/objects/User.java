@@ -1,4 +1,4 @@
-package com.project.users;
+package com.project.objects;
 
 public interface User {
     void logout();
@@ -10,6 +10,4 @@ public interface User {
     void changePass(String newPass);
     void showTrips();
     boolean isAdmin();
-    String getFullname();
-    int getUserid();
 }
