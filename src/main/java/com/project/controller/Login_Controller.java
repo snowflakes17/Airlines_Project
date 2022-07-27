@@ -2,7 +2,6 @@ package com.project.controller;
 
 import io.github.palexdev.materialfx.controls.MFXButton;
 import javafx.animation.FadeTransition;
-import javafx.animation.ScaleTransition;
 import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -19,7 +18,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-
+import java.sql.*;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -112,9 +111,17 @@ public class Login_Controller implements Initializable {
     }
 
     @FXML
-    void Login(ActionEvent event) throws IOException{
-        
-        String u_n = uname_field.getText();
+    void Login(ActionEvent event) throws IOException,SQLException{
+
+//        ConnectDB connectDB = new ConnectDB();
+//        Connection connection = connectDB.getConnection();
+//
+//        String sql = "INSERT INTO Airline VALUES ('SOA-A24', 'PH-LBR', 'South-African Airlines')";
+//        Statement st = connection.createStatement();
+//        st.executeUpdate(sql);
+
+
+//        String u_n = uname_field.getText();
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("User_Page.fxml"));
         root = loader.load();
