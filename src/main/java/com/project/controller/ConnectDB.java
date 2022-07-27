@@ -7,9 +7,9 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class ConnectDB {
+    private static Connection connection;
+    public static Statement getConnection(){
 
-    public Statement getConnection(){
-        Connection connection = null;
         try {
             // Load the JDBC driver
             Class.forName("org.mariadb.jdbc.Driver");
@@ -23,18 +23,20 @@ public class ConnectDB {
         catch (Exception e){
             System.out.println("Error");
         }
-//        finally {
-//            try {
-//                connection.close();
-//            }catch (Exception e){}
-//        }
 
-        Statement l = null;
+        Statement l;
         try {
             l = connection.createStatement();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
         return l;
+    }
+    public static void Dispose(){
+        try {
+            connection.close();
+        } catch (SQLException e) {
+            System.out.println("Connection is open while trying to close it !");
+        }
     }
 }

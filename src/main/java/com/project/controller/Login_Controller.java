@@ -113,12 +113,7 @@ public class Login_Controller implements Initializable {
     @FXML
     void Login(ActionEvent event) throws IOException,SQLException{
 
-//        ConnectDB connectDB = new ConnectDB();
-//        Connection connection = connectDB.getConnection();
-//
-//        String sql = "INSERT INTO Airline VALUES ('SOA-A24', 'PH-LBR', 'South-African Airlines')";
-//        Statement st = connection.createStatement();
-//        st.executeUpdate(sql);
+
 
 
 //        String u_n = uname_field.getText();
