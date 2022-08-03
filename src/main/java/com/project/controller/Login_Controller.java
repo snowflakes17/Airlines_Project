@@ -1,5 +1,6 @@
 package com.project.controller;
 
+import com.project.objects.Customer;
 import io.github.palexdev.materialfx.controls.MFXButton;
 import javafx.animation.FadeTransition;
 import javafx.animation.TranslateTransition;
@@ -129,9 +130,13 @@ public class Login_Controller implements Initializable {
                     String bcryptHashString = get_p.getString("passenger_password");
                     System.out.println(bcryptHashString);
                     if (BCrypt.checkpw(password, bcryptHashString)) {
+                        PreparedStatement get_all = s.getConnection().prepareStatement("SELECT * from `Passenger`WHERE passenger_email = '" + uname_field.getText() +"'");
+                        ResultSet get_a = get_all.executeQuery();
                         FXMLLoader loader = new FXMLLoader(getClass().getResource("User_Page.fxml"));
                         root = loader.load();
                         try {
+                            Customer addis = new Customer(get_a);
+                            new UserPage_Controller().setCustomer(addis);
                             switchPage(event);
                         } catch (IOException e) {
                             e.printStackTrace();

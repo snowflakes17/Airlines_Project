@@ -10,6 +10,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
@@ -22,6 +23,7 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -39,10 +41,13 @@ public class SignUp_Controller {
     private MFXButton Back;
 
     @FXML
-    private MFXButton Back1;
+    private DatePicker BirthDate;
 
     @FXML
-    private Label Back_To_Login;
+    private MFXTextField Credit_Card;
+
+    @FXML
+    private MFXTextField FullName;
 
     @FXML
     private Label Must1;
@@ -57,15 +62,6 @@ public class SignUp_Controller {
     private Label Must4;
 
     @FXML
-    private DatePicker BirthDate;
-
-    @FXML
-    private MFXTextField Credit_Card;
-
-    @FXML
-    private MFXTextField FullName;
-
-    @FXML
     private MFXTextField PassportNo;
 
     @FXML
@@ -73,6 +69,9 @@ public class SignUp_Controller {
 
     @FXML
     private Label Signup_lbl;
+
+    @FXML
+    private Button backL;
 
     @FXML
     private ImageView box1;
@@ -101,9 +100,6 @@ public class SignUp_Controller {
 
     @FXML
     void SignUp(ActionEvent event) {
-
-        Statement st = ConnectDB.getConnection();
-        System.out.println(FullName.getText() == "");
         if ( FullName.getText() == "" || password.getText() == "" || email.getText() == "" || BirthDate.getValue() == null ){
             if (FullName.getText() == "")
                 Must1.setVisible(true);
@@ -119,32 +115,38 @@ public class SignUp_Controller {
             else Must4.setVisible(false);
         }
         else {
+            Statement st = ConnectDB.getConnection();
             try {
                 String passwd = password.getText();
                 String bcryptHashString = BCrypt.hashpw(passwd, BCrypt.gensalt());
                 System.out.println(bcryptHashString.length());
                 String sql = "INSERT INTO `Passenger` (passenger_first_name, " +
                         "passenger_last_name,passenger_dateOfBirth,passenger_email," +
-                        "passenger_creditCard,passenger_password,passenger_passport_number)" +
-                        " VALUES( ?, ?, ?, ?, ?, ?, ?)";
+                        "passenger_creditCard,passenger_password,passenger_passport_number,"+
+                        "passenger_Citiznship,passenger_Residence,createdAt,updatedAt)" +
+                        " VALUES( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
                 String[] Name = FullName.getText().split(" ");
                 PreparedStatement p = st.getConnection().prepareStatement(sql);
                 p.setString(1, Name[0]);
-                p.setString(2, Name[1]);
+                p.setString(2, Name.length > 1 ? Name[1] : " ");
                 p.setDate(3, Date.valueOf(BirthDate.getValue()));
                 p.setString(4, email.getText());
                 p.setString(5, Credit_Card.getText());
                 p.setString(6, bcryptHashString);
                 p.setString(7, PassportNo.getText());
+                p.setString(8, " ");
+                p.setString(9, " ");
+                p.setDate(10, Date.valueOf(LocalDate.now()));
+                p.setDate(11, Date.valueOf(LocalDate.now()));
 
                 p.execute();
 
                 Approved.setVisible(true);
                 Approved.setDisable(false);
-                Back_To_Login.setVisible(true);
-                Back_To_Login.setDisable(false);
-                Back1.setVisible(true);
-                Back1.setDisable(false);
+                backL.setVisible(true);
+                backL.setDisable(false);
+                backL.setVisible(true);
+                backL.setDisable(false);
 
                 List<Node> Off = new ArrayList<Node>();
                 Off.add(box1);
@@ -171,11 +173,11 @@ public class SignUp_Controller {
                 fd.setFromValue(0);
                 fd.setToValue(1);
                 fd.playFromStart();
-                FadeTransition ad = new FadeTransition(Duration.millis(1000), Back_To_Login);
+                FadeTransition ad = new FadeTransition(Duration.millis(1000), backL);
                 ad.setFromValue(0);
                 ad.setToValue(1);
                 ad.playFromStart();
-                FadeTransition we = new FadeTransition(Duration.millis(1000), Back1);
+                FadeTransition we = new FadeTransition(Duration.millis(1000), Approved);
                 we.setFromValue(0);
                 we.setToValue(1);
                 we.playFromStart();

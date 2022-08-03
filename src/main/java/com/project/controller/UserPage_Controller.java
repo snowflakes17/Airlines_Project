@@ -21,12 +21,21 @@ public class UserPage_Controller implements Initializable{
     private Scene scene;
     private Stage stage;
     private Parent root;
+    private Customer customer;
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+        System.out.println(customer.getFirstName());
+    }
 
     @FXML
     private Button Logout;
 
     @FXML
     Label user_Name;
+
+    @FXML
+    Label Email;
 
     public void switchPage(ActionEvent event) throws IOException{
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -63,8 +72,8 @@ public class UserPage_Controller implements Initializable{
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
-        
-        
+//        user_Name.setText(customer.getFirstName() + customer.getLastName());
+//        Email.setText(customer.getEmail());
     }
 
 }
