@@ -45,7 +45,7 @@
                   <Image url="@Assests/Bg-.png" />
                </image>
             </ImageView>
-            <MFXTextField fx:id="FullName" floatMode="BORDER" floatingText="Full Name" layoutX="205.0" layoutY="96.0" prefHeight="50.0" prefWidth="460.0" styleClass="signup-txtfield" stylesheets="@Assests/Fx.css">
+            <MFXTextField fx:id="FullName" floatMode="BORDER" floatingText="  Full Name" layoutX="204.0" layoutY="96.0" prefHeight="50.0" prefWidth="460.0" styleClass="signup-txtfield" stylesheets="@Assests/Fx.css">
                <font>
                   <Font name="Poppins Medium" size="14.0" />
                </font>
@@ -56,18 +56,18 @@
                   <Color red="1.0" green="1.0" blue="1.0" opacity="0.8700000047683716" />
                </textFill>
             </MFXTextField>
-            <ImageView fx:id="box1" disable="true" fitHeight="67.0" fitWidth="471.0" layoutX="198.0" layoutY="173.0" opacity="0.72">
+            <ImageView fx:id="box1" disable="true" fitHeight="67.0" fitWidth="471.0" layoutX="198.0" layoutY="174.0" opacity="0.72">
                <image>
                   <Image url="@Assests/Bg-.png" />
                </image>
             </ImageView>
-            <MFXPasswordField fx:id="password" floatMode="BORDER" floatingText="password" layoutX="204.0" layoutY="180.0" prefHeight="50.0" prefWidth="460.0" styleClass="signup-txtfield" />
+            <MFXPasswordField fx:id="password" floatMode="BORDER" floatingText="   password" layoutX="204.0" layoutY="181.0" prefHeight="50.0" prefWidth="460.0" styleClass="signup-txtfield" />
             <ImageView fx:id="box3" disable="true" fitHeight="67.0" fitWidth="210.0" layoutX="201.0" layoutY="260.0" opacity="0.72">
                <image>
                   <Image url="@Assests/Bg-.png" />
                </image>
             </ImageView>
-            <MFXTextField fx:id="email" floatMode="BORDER" floatingText="Email" layoutX="206.0" layoutY="267.0" prefHeight="54.0" prefWidth="200.0" style="-fx-text-fill: black;" styleClass="signup-txtfield">
+            <MFXTextField fx:id="email" floatMode="BORDER" floatingText="   Email" layoutX="206.0" layoutY="267.0" prefHeight="54.0" prefWidth="200.0" style="-fx-text-fill: black;" styleClass="signup-txtfield">
                <textFill>
                   <Color red="1.0" green="1.0" blue="1.0" opacity="0.8700000047683716" />
                </textFill>
@@ -82,7 +82,7 @@
                   <Image url="@Assests/Bg-.png" />
                </image>
             </ImageView>
-            <MFXTextField fx:id="PassportNo" floatMode="BORDER" floatingText="Passport no." layoutX="445.0" layoutY="348.0" prefHeight="54.0" prefWidth="222.0" style="-fx-text-fill: black;" styleClass="signup-txtfield">
+            <MFXTextField fx:id="PassportNo" floatMode="BORDER" floatingText="   Passport no." layoutX="445.0" layoutY="348.0" prefHeight="54.0" prefWidth="222.0" style="-fx-text-fill: black;" styleClass="signup-txtfield">
                <textFill>
                   <Color red="1.0" green="1.0" blue="1.0" opacity="0.8700000047683716" />
                </textFill>
@@ -92,18 +92,38 @@
                   <Image url="@Assests/Bg-.png" />
                </image>
             </ImageView>
-            <MFXTextField fx:id="Credit_Card" floatMode="BORDER" floatingText="Credit Card" layoutX="444.0" layoutY="267.0" prefHeight="54.0" prefWidth="221.0" style="-fx-text-fill: black;" styleClass="signup-txtfield">
+            <MFXTextField fx:id="Credit_Card" floatMode="BORDER" floatingText="   Credit Card" layoutX="444.0" layoutY="267.0" prefHeight="54.0" prefWidth="221.0" style="-fx-text-fill: black;" styleClass="signup-txtfield">
                <textFill>
                   <Color red="1.0" green="1.0" blue="1.0" opacity="0.8700000047683716" />
                </textFill>
             </MFXTextField>
-            <DatePicker fx:id="BirthDate" layoutX="207.0" layoutY="350.0" prefHeight="49.0" prefWidth="201.0" promptText="Date of Birth" styleClass="signup-txtfield" />
+            <DatePicker fx:id="BirthDate" layoutX="207.0" layoutY="350.0" prefHeight="49.0" prefWidth="201.0" promptText=" Date of Birth" styleClass="signup-txtfield" />
             <ImageView fx:id="Approved" disable="true" fitHeight="187.0" fitWidth="212.0" layoutX="340.0" layoutY="147.0" opacity="0.0" style="-fx-blend-mode: darken;" visible="false">
                <image>
                   <Image url="@Assests/Approve.jpg" />
                </image>
             </ImageView>
             <Button fx:id="backL" disable="true" layoutX="340.0" layoutY="352.0" mnemonicParsing="false" onAction="#backToLogin" opacity="0.0" prefHeight="54.0" prefWidth="180.0" styleClass="btn" text="Back To Login" visible="false" />
+            <Label fx:id="Must1" contentDisplay="CENTER" disable="true" layoutX="205.0" layoutY="70.0" lineSpacing="2.0" prefHeight="24.0" prefWidth="134.0" style="-fx-text-fill: black;" text="* must be filled" textAlignment="CENTER" underline="true" visible="false">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="Must2" contentDisplay="CENTER" disable="true" layoutX="202.0" layoutY="155.0" lineSpacing="2.0" prefHeight="24.0" prefWidth="134.0" style="-fx-text-fill: black;" text="* must be filled" textAlignment="CENTER" underline="true" visible="false">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="Must3" contentDisplay="CENTER" disable="true" layoutX="204.0" layoutY="238.0" lineSpacing="2.0" prefHeight="24.0" prefWidth="134.0" style="-fx-text-fill: black;" text="* must be filled" textAlignment="CENTER" underline="true" visible="false">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="Must4" contentDisplay="CENTER" disable="true" layoutX="204.0" layoutY="323.0" lineSpacing="2.0" prefHeight="24.0" prefWidth="134.0" style="-fx-text-fill: black;" text="* must be filled" textAlignment="CENTER" underline="true" visible="false">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
    </center>

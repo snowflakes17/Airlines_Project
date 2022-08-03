@@ -45,6 +45,18 @@ public class SignUp_Controller {
     private Label Back_To_Login;
 
     @FXML
+    private Label Must1;
+
+    @FXML
+    private Label Must2;
+
+    @FXML
+    private Label Must3;
+
+    @FXML
+    private Label Must4;
+
+    @FXML
     private DatePicker BirthDate;
 
     @FXML
@@ -91,73 +103,89 @@ public class SignUp_Controller {
     void SignUp(ActionEvent event) {
 
         Statement st = ConnectDB.getConnection();
-        try {
-            String passwd = password.getText();
-            String bcryptHashString = BCrypt.hashpw(passwd, BCrypt.gensalt());
-            System.out.println(bcryptHashString.length());
-            String sql = "INSERT INTO `Passenger` (passenger_first_name, " +
-                    "passenger_last_name,passenger_dateOfBirth,passenger_email," +
-                    "passenger_creditCard,passenger_password,passenger_passport_number)" +
-                    " VALUES( ?, ?, ?, ?, ?, ?, ?)";
-            String[] Name = FullName.getText().split(" ");
-            PreparedStatement p = st.getConnection().prepareStatement(sql);
-            p.setString(1, Name[0]);
-            p.setString(2, Name[1]);
-            p.setDate  (3, Date.valueOf(BirthDate.getValue()));
-            p.setString(4, email.getText());
-            p.setString(5, Credit_Card.getText());
-            p.setString(6, bcryptHashString);
-            p.setString(7, PassportNo.getText());
-
-            p.execute();
-
-            Approved.setVisible(true);
-            Approved.setDisable(false);
-            Back_To_Login.setVisible(true);
-            Back_To_Login.setDisable(false);
-            Back1.setVisible(true);
-            Back1.setDisable(false);
-
-            List<Node> Off = new ArrayList<Node>();
-            Off.add(box1);
-            Off.add(box2);
-            Off.add(box3);
-            Off.add(box4);
-            Off.add(box5);
-            Off.add(box6);
-            Off.add(Signup_lbl);
-            Off.add(SignUp);
-            Off.add(BirthDate);
-            Off.add(FullName);
-            Off.add(PassportNo);
-            Off.add(password);
-            Off.add(email);
-            Off.add(Credit_Card);
-            Off.add(Back);
-
-            for (Node k:
-                 Off) {
-                k.setVisible(false);
-            }
-            FadeTransition fd = new FadeTransition(Duration.millis(1000),Approved);
-            fd.setFromValue(0);
-            fd.setToValue(1);
-            fd.playFromStart();
-            FadeTransition ad = new FadeTransition(Duration.millis(1000),Back_To_Login);
-            ad.setFromValue(0);
-            ad.setToValue(1);
-            ad.playFromStart();
-            FadeTransition we = new FadeTransition(Duration.millis(1000),Back1);
-            we.setFromValue(0);
-            we.setToValue(1);
-            we.playFromStart();
-
-
-        } catch (SQLException e) {
-            System.out.println("DataBaseError");
+        System.out.println(FullName.getText() == "");
+        if ( FullName.getText() == "" || password.getText() == "" || email.getText() == "" || BirthDate.getValue() == null ){
+            if (FullName.getText() == "")
+                Must1.setVisible(true);
+            else Must1.setVisible(false);
+            if(password.getText() == "")
+                Must2.setVisible(true);
+            else Must2.setVisible(false);
+            if(email.getText() == "")
+                Must3.setVisible(true);
+            else Must3.setVisible(false);
+            if(BirthDate.getValue() == null)
+                Must4.setVisible(true);
+            else Must4.setVisible(false);
         }
-        finally {
-            ConnectDB.Dispose();
+        else {
+            try {
+                String passwd = password.getText();
+                String bcryptHashString = BCrypt.hashpw(passwd, BCrypt.gensalt());
+                System.out.println(bcryptHashString.length());
+                String sql = "INSERT INTO `Passenger` (passenger_first_name, " +
+                        "passenger_last_name,passenger_dateOfBirth,passenger_email," +
+                        "passenger_creditCard,passenger_password,passenger_passport_number)" +
+                        " VALUES( ?, ?, ?, ?, ?, ?, ?)";
+                String[] Name = FullName.getText().split(" ");
+                PreparedStatement p = st.getConnection().prepareStatement(sql);
+                p.setString(1, Name[0]);
+                p.setString(2, Name[1]);
+                p.setDate(3, Date.valueOf(BirthDate.getValue()));
+                p.setString(4, email.getText());
+                p.setString(5, Credit_Card.getText());
+                p.setString(6, bcryptHashString);
+                p.setString(7, PassportNo.getText());
+
+                p.execute();
+
+                Approved.setVisible(true);
+                Approved.setDisable(false);
+                Back_To_Login.setVisible(true);
+                Back_To_Login.setDisable(false);
+                Back1.setVisible(true);
+                Back1.setDisable(false);
+
+                List<Node> Off = new ArrayList<Node>();
+                Off.add(box1);
+                Off.add(box2);
+                Off.add(box3);
+                Off.add(box4);
+                Off.add(box5);
+                Off.add(box6);
+                Off.add(Signup_lbl);
+                Off.add(SignUp);
+                Off.add(BirthDate);
+                Off.add(FullName);
+                Off.add(PassportNo);
+                Off.add(password);
+                Off.add(email);
+                Off.add(Credit_Card);
+                Off.add(Back);
+
+                for (Node k :
+                        Off) {
+                    k.setVisible(false);
+                }
+                FadeTransition fd = new FadeTransition(Duration.millis(1000), Approved);
+                fd.setFromValue(0);
+                fd.setToValue(1);
+                fd.playFromStart();
+                FadeTransition ad = new FadeTransition(Duration.millis(1000), Back_To_Login);
+                ad.setFromValue(0);
+                ad.setToValue(1);
+                ad.playFromStart();
+                FadeTransition we = new FadeTransition(Duration.millis(1000), Back1);
+                we.setFromValue(0);
+                we.setToValue(1);
+                we.playFromStart();
+
+
+            } catch (SQLException e) {
+                System.out.println("DataBaseError");
+            } finally {
+                ConnectDB.Dispose();
+            }
         }
 
     }

@@ -140,10 +140,10 @@ public class Login_Controller implements Initializable {
                     else {
                         System.out.println("Wrong password combination");
                     }
-                    }
+                }
                 else {
                     System.out.println("SQL ERROR");
-            }
+                }
             }
             else {
                 System.out.println("No user found with this email");

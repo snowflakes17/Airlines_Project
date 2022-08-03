@@ -60,7 +60,7 @@
                   <Image url="@Assests/Password.png" />
                </image>
             </ImageView>
-            <TextField fx:id="uname_field" blendMode="MULTIPLY" layoutX="117.0" layoutY="339.5" onAction="#Login" opacity="0.0" prefHeight="39.0" prefWidth="288.0" promptText=" username" styleClass="text-field" stylesheets="@Assests/Fx.css" visible="false">
+            <TextField fx:id="uname_field" blendMode="MULTIPLY" layoutX="117.0" layoutY="339.5" onAction="#Login" opacity="0.0" prefHeight="39.0" prefWidth="288.0" promptText=" email" styleClass="text-field" stylesheets="@Assests/Fx.css" visible="false">
                <font>
                   <Font name="Montserrat Light Italic" size="10.0" />
                </font></TextField>
