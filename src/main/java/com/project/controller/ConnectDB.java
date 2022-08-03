@@ -18,7 +18,7 @@ public class ConnectDB {
             // Try to connect
             connection =
                     DriverManager.getConnection("jdbc:mariadb://localhost/Airlines_project", "foo", "bar");
-            System.out.println("It works!");
+//            System.out.println("It works!");
         }
         catch (Exception e){
             System.out.println("Error");
