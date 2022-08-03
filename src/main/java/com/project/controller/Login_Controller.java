@@ -11,13 +11,14 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import org.mindrot.jbcrypt.BCrypt;
+
 import java.sql.*;
 import java.io.IOException;
 import java.net.URL;
@@ -113,20 +114,41 @@ public class Login_Controller implements Initializable {
     @FXML
     void Login(ActionEvent event) throws IOException,SQLException{
 
-
-
-
-//        String u_n = uname_field.getText();
-
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("User_Page.fxml"));
-        root = loader.load();
-
-        try {
-            switchPage(event);
-        } catch (IOException e) {
-            e.printStackTrace();
+        Statement s = ConnectDB.getConnection();
+        PreparedStatement get_email = s.getConnection().prepareStatement("SELECT passenger_email from `Passenger` WHERE passenger_email = '" + uname_field.getText() +"'");
+        PreparedStatement get_pass = s.getConnection().prepareStatement("SELECT passenger_password from `Passenger`WHERE passenger_email = '" + uname_field.getText() +"'");
+        ResultSet get_e = get_email.executeQuery();
+        ResultSet get_p = get_pass.executeQuery();
+        String password = password_field.getText();
+        String email = uname_field.getText();
+        if (get_e.next()) {
+            String user = get_e.getString("passenger_email");
+            System.out.println(user);
+            if (user.equals(email)) {
+                if(get_p.next()){
+                    String bcryptHashString = get_p.getString("passenger_password");
+                    System.out.println(bcryptHashString);
+                    if (BCrypt.checkpw(password, bcryptHashString)) {
+                        FXMLLoader loader = new FXMLLoader(getClass().getResource("User_Page.fxml"));
+                        root = loader.load();
+                        try {
+                            switchPage(event);
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                    else {
+                        System.out.println("Wrong password combination");
+                    }
+                    }
+                else {
+                    System.out.println("SQL ERROR");
+            }
+            }
+            else {
+                System.out.println("No user found with this email");
+            }
         }
-
     }
 
     @FXML

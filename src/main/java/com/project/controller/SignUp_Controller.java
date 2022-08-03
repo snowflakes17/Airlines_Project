@@ -15,6 +15,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import org.mindrot.jbcrypt.BCrypt;
 
 import java.io.IOException;
 import java.sql.Date;
@@ -91,6 +92,9 @@ public class SignUp_Controller {
 
         Statement st = ConnectDB.getConnection();
         try {
+            String passwd = password.getText();
+            String bcryptHashString = BCrypt.hashpw(passwd, BCrypt.gensalt());
+            System.out.println(bcryptHashString.length());
             String sql = "INSERT INTO `Passenger` (passenger_first_name, " +
                     "passenger_last_name,passenger_dateOfBirth,passenger_email," +
                     "passenger_creditCard,passenger_password,passenger_passport_number)" +
@@ -102,7 +106,7 @@ public class SignUp_Controller {
             p.setDate  (3, Date.valueOf(BirthDate.getValue()));
             p.setString(4, email.getText());
             p.setString(5, Credit_Card.getText());
-            p.setString(6, password.getText());
+            p.setString(6, bcryptHashString);
             p.setString(7, PassportNo.getText());
 
             p.execute();
@@ -159,7 +163,7 @@ public class SignUp_Controller {
     }
 
     public void switchPage(ActionEvent event) throws IOException {
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
