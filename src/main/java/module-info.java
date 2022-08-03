@@ -5,7 +5,9 @@ module com.project.airlines_project {
     requires jbcrypt;
     requires static lombok;
     requires java.sql;
-    requires bcrypt;
+
+
+    opens com.project.controller to javafx.fxml;
     exports com.project.controller;
 }
 
