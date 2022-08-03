@@ -4,9 +4,7 @@ module com.project.airlines_project {
     requires MaterialFX;
     requires static lombok;
     requires java.sql;
-
-
-    opens com.project.controller to javafx.fxml;
+    requires bcrypt;
     exports com.project.controller;
 }
 

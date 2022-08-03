@@ -1,5 +1,6 @@
 package com.project.controller;
 
+import at.favre.lib.crypto.bcrypt.BCrypt;
 import io.github.palexdev.materialfx.controls.MFXButton;
 import io.github.palexdev.materialfx.controls.MFXPasswordField;
 import io.github.palexdev.materialfx.controls.MFXTextField;
@@ -10,12 +11,12 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-
 import java.io.IOException;
 import java.sql.Date;
 import java.sql.PreparedStatement;
@@ -30,18 +31,14 @@ public class SignUp_Controller {
     private Stage stage;
     private Scene scene;
 
+    @FXML
+    private Button backL;
 
     @FXML
     private ImageView Approved;
 
     @FXML
     private MFXButton Back;
-
-    @FXML
-    private MFXButton Back1;
-
-    @FXML
-    private Label Back_To_Login;
 
     @FXML
     private DatePicker BirthDate;
@@ -98,21 +95,19 @@ public class SignUp_Controller {
             String[] Name = FullName.getText().split(" ");
             PreparedStatement p = st.getConnection().prepareStatement(sql);
             p.setString(1, Name[0]);
-            p.setString(2, Name[1]);
+            p.setString(2, Name.length > 1 ? Name[1] : "");
             p.setDate  (3, Date.valueOf(BirthDate.getValue()));
             p.setString(4, email.getText());
             p.setString(5, Credit_Card.getText());
-            p.setString(6, password.getText());
+            p.setString(6, BCrypt.withDefaults().hashToString(12, password.getText().toCharArray()));
             p.setString(7, PassportNo.getText());
 
             p.execute();
 
             Approved.setVisible(true);
             Approved.setDisable(false);
-            Back_To_Login.setVisible(true);
-            Back_To_Login.setDisable(false);
-            Back1.setVisible(true);
-            Back1.setDisable(false);
+            backL.setVisible(true);
+            backL.setDisable(false);
 
             List<Node> Off = new ArrayList<Node>();
             Off.add(box1);
@@ -139,11 +134,7 @@ public class SignUp_Controller {
             fd.setFromValue(0);
             fd.setToValue(1);
             fd.playFromStart();
-            FadeTransition ad = new FadeTransition(Duration.millis(1000),Back_To_Login);
-            ad.setFromValue(0);
-            ad.setToValue(1);
-            ad.playFromStart();
-            FadeTransition we = new FadeTransition(Duration.millis(1000),Back1);
+            FadeTransition we = new FadeTransition(Duration.millis(1000),backL);
             we.setFromValue(0);
             we.setToValue(1);
             we.playFromStart();

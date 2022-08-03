@@ -1,5 +1,6 @@
 package com.project.controller;
 
+import at.favre.lib.crypto.bcrypt.BCrypt;
 import io.github.palexdev.materialfx.controls.MFXButton;
 import javafx.animation.FadeTransition;
 import javafx.animation.TranslateTransition;
@@ -113,19 +114,29 @@ public class Login_Controller implements Initializable {
     @FXML
     void Login(ActionEvent event) throws IOException,SQLException{
 
+        Statement S = ConnectDB.getConnection();
+        PreparedStatement st_e = S.getConnection().prepareStatement("SELECT passenger_email from `Passenger`");
+        PreparedStatement st_p = S.getConnection().prepareStatement("SELECT passenger_password from `Passenger`");
+        ResultSet r1 = st_e.executeQuery();
+        ResultSet r2 = st_p.executeQuery();
+        String emailCounter;
 
+        if(r1.next()) {
+            emailCounter = r1.getString("passenger_email");
+            if (emailCounter.equals(uname_field.getText())) {
+                if(BCrypt.verifyer().verify(password_field.getText().toCharArray(), r2.getString("passenger_password")).verified){
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("User_Page.fxml"));
+                    root = loader.load();
 
-
-//        String u_n = uname_field.getText();
-
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("User_Page.fxml"));
-        root = loader.load();
-
-        try {
-            switchPage(event);
-        } catch (IOException e) {
-            e.printStackTrace();
+                    try {
+                        switchPage(event);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
         }
+
 
     }
 
