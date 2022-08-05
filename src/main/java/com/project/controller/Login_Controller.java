@@ -132,12 +132,15 @@ public class Login_Controller implements Initializable {
                     if (BCrypt.checkpw(password, bcryptHashString)) {
                         PreparedStatement get_all = s.getConnection().prepareStatement("SELECT * from `Passenger`WHERE passenger_email = '" + uname_field.getText() +"'");
                         ResultSet get_a = get_all.executeQuery();
-                        FXMLLoader loader = new FXMLLoader(getClass().getResource("User_Page.fxml"));
-                        root = loader.load();
                         try {
-                            Customer addis = new Customer(get_a);
-                            new UserPage_Controller().setCustomer(addis);
-                            switchPage(event);
+                            if (get_a.next()){
+                                Customer addis = new Customer(get_a);
+                                FXMLLoader loader = new FXMLLoader(getClass().getResource("User_Page.fxml"));
+                                root = (Parent) loader.load();
+                                UserPage_Controller a= loader.getController();
+                                a.setCustomer(addis);
+                                switchPage(event);
+                            }
                         } catch (IOException e) {
                             e.printStackTrace();
                         }

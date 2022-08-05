@@ -100,6 +100,7 @@ public class SignUp_Controller {
 
     @FXML
     void SignUp(ActionEvent event) {
+
         if ( FullName.getText() == "" || password.getText() == "" || email.getText() == "" || BirthDate.getValue() == null ){
             if (FullName.getText() == "")
                 Must1.setVisible(true);

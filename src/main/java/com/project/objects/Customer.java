@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.Date;
 @Data
 public class Customer implements User {
-    private final int userId = 2;
+    private int userId;
     private String firstName;
     private String lastName;
     private String email;
@@ -19,11 +19,11 @@ public class Customer implements User {
     private String countryOfResidence;
     private final Date createdAt;
     private Date updatedAt;
-    private final String passportNumber;
+    private String passportNumber;
     private ArrayList Flights;
 
     public Customer(ResultSet DataSet) throws SQLException {
-//        this.userId = DataSet.getInt("passenger_id");
+        this.userId = DataSet.getInt("passenger_id");
         this.firstName = DataSet.getString("passenger_first_name");
         this.email = DataSet.getString("passenger_email");
         this.lastName = DataSet.getString("passenger_last_name");
@@ -33,8 +33,22 @@ public class Customer implements User {
         this.countryOfResidence = DataSet.getString("passenger_Residence");
         this.passportNumber = DataSet.getString("passenger_passport_number");
         this.creditCard = DataSet.getString("passenger_creditCard");
-        createdAt = DataSet.getDate("passenger_createdAt");
-        updatedAt = DataSet.getDate("passenger_updatedAt");
+        this.createdAt = DataSet.getDate("createdAt");
+        this.updatedAt = DataSet.getDate("updatedAt");
+    }
+    public Customer(){
+        this.userId = 0;
+        this.firstName = null;
+        this.email = null;
+        this.lastName = null;
+        this.password = null;
+        this.dateOfBirth = null;
+        this.countryOfCitiznship = null;
+        this.countryOfResidence = null;
+        this.passportNumber = null;
+        this.creditCard = null;
+        this.createdAt = null;
+        this.updatedAt = null;
     }
     @Override
     public void logout(){

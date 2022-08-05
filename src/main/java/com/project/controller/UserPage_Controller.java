@@ -2,9 +2,11 @@ package com.project.controller;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 import com.project.objects.Customer;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -16,17 +18,15 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.scene.Node;
 
-public class UserPage_Controller implements Initializable{
+import javax.swing.table.TableCellRenderer;
 
+public class UserPage_Controller implements Initializable{
     private Scene scene;
     private Stage stage;
     private Parent root;
     private Customer customer;
 
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
-        System.out.println(customer.getFirstName());
-    }
+
 
     @FXML
     private Button Logout;
@@ -70,10 +70,12 @@ public class UserPage_Controller implements Initializable{
          user_Name.setText(String.valueOf(who.getFirstName()));
     }
 
-    @Override
-    public void initialize(URL arg0, ResourceBundle arg1) {
-//        user_Name.setText(customer.getFirstName() + customer.getLastName());
-//        Email.setText(customer.getEmail());
+    public void setCustomer(Customer customer) throws SQLException {
+        this.customer = customer;
+        user_Name.setText(customer.getFirstName() + customer.getLastName());
+        Email.setText(customer.getEmail());
     }
+    @Override
+    public void initialize(URL arg0, ResourceBundle arg1) {}
 
 }
