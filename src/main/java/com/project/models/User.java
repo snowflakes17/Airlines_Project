@@ -1,4 +1,4 @@
-package com.project.objects;
+package com.project.models;
 
 public interface User {
     void logout();

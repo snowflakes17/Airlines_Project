@@ -1,6 +1,6 @@
 package com.project.controller;
 
-import com.project.objects.Customer;
+import com.project.models.Customer;
 import io.github.palexdev.materialfx.controls.MFXButton;
 import javafx.animation.FadeTransition;
 import javafx.animation.TranslateTransition;

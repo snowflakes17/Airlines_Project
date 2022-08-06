@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import io.github.palexdev.materialfx.controls.MFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+
+<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="605.0" prefWidth="900.0" stylesheets="@Assests/Fx.css" type="BorderPane" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UserPageCheckInController">
+   <left>
+      <AnchorPane id="main_user" prefHeight="605.0" prefWidth="615.0" style="-fx-background-color: #F2994A;" stylesheets="@Assests/Fx.css" BorderPane.alignment="CENTER">
+         <effect>
+            <DropShadow blurType="GAUSSIAN" height="0.24" radius="6.972499999999999" spread="0.13" width="29.65">
+               <color>
+                  <Color opacity="0.7241379022598267" />
+               </color>
+            </DropShadow>
+         </effect>
+         <children>
+            <ImageView fitHeight="61.0" fitWidth="552.0" layoutX="32.0" layoutY="31.0">
+               <image>
+                  <Image url="@Assests/Rectangle%2011.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="MyTrips" fitHeight="46.0" fitWidth="88.0" layoutX="258.0" layoutY="36.0">
+               <image>
+                  <Image url="@Assests/Group%205.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="403.0" fitWidth="546.0" layoutX="34.0" layoutY="112.0">
+               <image>
+                  <Image url="@Assests/Rectangle%2018.png" />
+               </image>
+            </ImageView>
+            <AnchorPane layoutX="49.0" layoutY="166.0" minHeight="0.0" minWidth="0.0" prefHeight="322.0" prefWidth="515.0">
+               <children>
+                  <MFXButton fx:id="Continues" layoutX="19.0" layoutY="241.0" prefHeight="39.0" prefWidth="472.0" style="-fx-border-color: none;" styleClass="btn" text="Continue" />
+                  <Label layoutX="25.0" layoutY="16.0" prefHeight="33.0" prefWidth="147.0" text="Check Eligibility" underline="true" />
+                  <TextField fx:id="Booking" layoutX="23.0" layoutY="158.0" prefHeight="35.0" prefWidth="442.0" promptText="Booking Reference" styleClass="text-fields" />
+                  <TextField fx:id="Last" layoutX="24.0" layoutY="196.0" prefHeight="35.0" prefWidth="441.0" promptText="Last name" styleClass="text-fields" />
+                  <ImageView fx:id="tab1" disable="true" fitHeight="35.0" fitWidth="162.0" layoutX="22.0" layoutY="105.0" visible="false">
+                     <image>
+                        <Image url="@Assests/tab1.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="tab2" disable="true" fitHeight="33.0" fitWidth="161.0" layoutX="23.0" layoutY="105.0">
+                     <image>
+                        <Image url="@Assests/tab2.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="Ref" layoutX="34.0" layoutY="109.0" style="-fx-text-fill: white;" text="Ref. No" />
+                  <Label fx:id="Ticket" layoutX="118.0" layoutY="109.0" text="Ticket" textFill="#1b1b1b" />
+                  <Label layoutX="24.0" layoutY="47.0" prefHeight="28.0" prefWidth="476.0" style="-fx-font-size: 1em;" text="Check-in starts 72 hours before departure and ends 2 -hours before">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="24.0" layoutY="68.0" prefHeight="28.0" prefWidth="476.0" style="-fx-font-size: 1em;" text="departure.">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="1.0" fitWidth="399.0" layoutX="33.0" layoutY="196.0">
+                     <image>
+                        <Image url="@Assests/Vector%201.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+            <ImageView fx:id="Book" fitHeight="44.0" fitWidth="91.0" layoutX="91.0" layoutY="38.0">
+               <image>
+                  <Image url="@Assests/Flight.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="Check" fitHeight="46.0" fitWidth="89.0" focusTraversable="true" layoutX="425.0" layoutY="37.0">
+               <image>
+                  <Image url="@Assests/Group%202.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="37.0" fitWidth="37.0" layoutX="70.0" layoutY="136.0">
+               <image>
+                  <Image url="@Assests/bi_patch-check-fill.png" />
+               </image>
+            </ImageView>
+         </children></AnchorPane>
+   </left>
+   <right>
+      <AnchorPane prefHeight="600.0" prefWidth="274.0" style="-fx-background-color: beige;" BorderPane.alignment="CENTER">
+         <children>
+            <Label fx:id="user_Name" accessibleText="Name Will Be Here" layoutX="93.0" layoutY="255.0" prefHeight="26.0" prefWidth="154.0" stylesheets="@Assests/Fx.css" text="Name Will Be here" textOverrun="CENTER_WORD_ELLIPSIS" />
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="31.0" layoutY="66.0" pickOnBounds="true" preserveRatio="true" styleClass="profile" />
+            <ImageView fitHeight="179.0" fitWidth="180.0" layoutX="47.0" layoutY="63.0">
+               <image>
+                  <Image url="@Assests/Profile.png" />
+               </image>
+               <effect>
+                  <DropShadow height="15.07" radius="7.035" width="15.07">
+                     <color>
+                        <Color opacity="0.6781609058380127" />
+                     </color>
+                  </DropShadow>
+               </effect>
+            </ImageView>
+            <Label layoutX="17.0" layoutY="255.0" prefHeight="27.0" prefWidth="68.0" styleClass="label-main" stylesheets="@Assests/Fx.css" text="Name :" textOverrun="CENTER_WORD_ELLIPSIS" />
+            <Label fx:id="Email" accessibleText="Name Will Be Here" layoutX="93.0" layoutY="290.0" prefHeight="26.0" prefWidth="154.0" stylesheets="@Assests/Fx.css" text="Email@gmail.com" textOverrun="CENTER_WORD_ELLIPSIS" />
+            <Label layoutX="17.0" layoutY="290.0" prefHeight="27.0" prefWidth="68.0" styleClass="label-main" stylesheets="@Assests/Fx.css" text="Email :" textOverrun="CENTER_WORD_ELLIPSIS" />
+            <ImageView fitHeight="176.0" fitWidth="200.0" layoutX="69.0" layoutY="429.0">
+               <image>
+                  <Image url="@Assests/clarity_plane-line.png" />
+               </image>
+            </ImageView>
+            <MFXButton id="logout" fx:id="Logout" layoutX="166.0" layoutY="335.0" onAction="#Logout" prefHeight="40.0" prefWidth="80.0" style="-fx-font-size: 17;" styleClass="btn" text="Logout" />
+         </children>
+      </AnchorPane>
+   </right>
+</fx:root>
