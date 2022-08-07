@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.paint.Color?>
 
-<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="605.0" prefWidth="900.0" stylesheets="@Assests/Fx.css" type="BorderPane" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UserPageMyFlight_Controller">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="605.0" prefWidth="900.0" stylesheets="@Assests/Fx.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.project.controller.UserPageMyFlight_Controller">
    <left>
       <AnchorPane id="main_user" prefHeight="605.0" prefWidth="615.0" style="-fx-background-color: #F2994A;" stylesheets="@Assests/Fx.css" BorderPane.alignment="CENTER">
          <effect>
@@ -30,7 +30,7 @@
                   <Image url="@Assests/Rectangle%2011.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="Checkin" fitHeight="47.0" fitWidth="90.0" layoutX="425.0" layoutY="36.0">
+            <ImageView fx:id="Checkin" fitHeight="47.0" fitWidth="90.0" layoutX="425.0" layoutY="36.0" onMouseClicked="#CheckIn">
                <image>
                   <Image url="@Assests/Group%204.png" />
                </image>
@@ -120,7 +120,7 @@
                   </Tab>
               </tabs>
             </TabPane>
-            <ImageView fx:id="Book" fitHeight="46.0" fitWidth="85.0" layoutX="90.0" layoutY="37.0">
+            <ImageView fx:id="Book" fitHeight="46.0" fitWidth="85.0" layoutX="90.0" layoutY="37.0" onMouseClicked="#Book">
                <image>
                   <Image url="@Assests/Flight.png" />
                </image>
@@ -152,8 +152,8 @@
                   <Image url="@Assests/clarity_plane-line.png" />
                </image>
             </ImageView>
-            <MFXButton id="logout" fx:id="Logout" layoutX="166.0" layoutY="335.0" onAction="#Logout" prefHeight="40.0" prefWidth="80.0" style="-fx-font-size: 17;" styleClass="btn" text="Logout" />
+            <MFXButton id="logout" fx:id="Logout" layoutX="166.0" layoutY="335.0" onMouseClicked="#Logout" prefHeight="40.0" prefWidth="80.0" style="-fx-font-size: 17;" styleClass="btn" text="Logout" />
          </children>
       </AnchorPane>
    </right>
-</fx:root>
+</BorderPane>

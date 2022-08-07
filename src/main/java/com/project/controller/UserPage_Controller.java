@@ -6,7 +6,6 @@ import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 import com.project.models.Customer;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -14,6 +13,7 @@ import javafx.scene.control.Label;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.scene.Node;
 
@@ -34,26 +34,21 @@ public class UserPage_Controller implements Initializable{
     @FXML
     Label Email;
 
-    public void switchPage(ActionEvent event) throws IOException{
+    public void setCustomer(Customer customer) throws SQLException {
+        this.customer = customer;
+        user_Name.setText(customer.getFirstName() + customer.getLastName());
+        Email.setText(customer.getEmail());
+    }
+
+    public void switchPage(MouseEvent event) throws IOException{
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
     }
 
-    @FXML
-    void Logout(ActionEvent event) {
-        try {
-            switchToLogin(event);
-        } catch (Exception e) {
-            e.printStackTrace();}
-
-        user_Name.setText("Nahom");
-        System.out.println(user_Name.getText());
-    }
-
-    public void switchToLogin(ActionEvent event) throws IOException{
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("Login.fxml"));
+    public void switchTo(MouseEvent event, String to) throws IOException{
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(to));
         root = loader.load();
         try {
             switchPage(event);
@@ -62,16 +57,30 @@ public class UserPage_Controller implements Initializable{
         }
 
     }
-
-    public void changeName(Customer who) {
-         user_Name.setText(String.valueOf(who.getFirstName()));
+    @FXML
+    void Logout(MouseEvent event) {
+        try {
+            switchTo(event,"Login.fxml");
+        } catch (Exception e) {
+            e.printStackTrace();}
     }
 
-    public void setCustomer(Customer customer) throws SQLException {
-        this.customer = customer;
-        user_Name.setText(customer.getFirstName() + customer.getLastName());
-        Email.setText(customer.getEmail());
+    @FXML
+    void CheckIn(MouseEvent event){
+        try {
+            switchTo(event,"User_Page_Checki_in.fxml");
+        } catch (Exception e) {
+            e.printStackTrace();}
     }
+
+    @FXML
+    void MyTrip(MouseEvent event){
+        try {
+            switchTo(event,"User_Page_My_Trip.fxml");
+        } catch (Exception e) {
+            e.printStackTrace();}
+    }
+
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {}
 

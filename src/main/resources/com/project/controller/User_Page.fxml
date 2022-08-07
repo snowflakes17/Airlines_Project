@@ -31,12 +31,12 @@
                   <Image url="@Assests/Rectangle%2011.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="MyTrips" fitHeight="46.0" fitWidth="88.0" layoutX="258.0" layoutY="36.0">
+            <ImageView fx:id="MyTrips" fitHeight="46.0" fitWidth="88.0" layoutX="258.0" layoutY="36.0" onMouseClicked="#MyTrip">
                <image>
                   <Image url="@Assests/Group%205.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="Checkin" fitHeight="47.0" fitWidth="90.0" layoutX="425.0" layoutY="36.0">
+            <ImageView fx:id="Checkin" fitHeight="47.0" fitWidth="90.0" layoutX="425.0" layoutY="36.0" onMouseClicked="#CheckIn">
                <image>
                   <Image url="@Assests/Group%204.png" />
                </image>
@@ -118,7 +118,7 @@
                   <Image url="@Assests/clarity_plane-line.png" />
                </image>
             </ImageView>
-            <MFXButton id="logout" fx:id="Logout" layoutX="166.0" layoutY="335.0" onAction="#Logout" prefHeight="40.0" prefWidth="80.0" style="-fx-font-size: 17;" styleClass="btn" text="Logout" />
+            <MFXButton id="logout" fx:id="Logout" layoutX="166.0" layoutY="335.0" onMouseClicked="#Logout" prefHeight="40.0" prefWidth="80.0" style="-fx-font-size: 17;" styleClass="btn" text="Logout" />
          </children>
       </AnchorPane>
    </right>
