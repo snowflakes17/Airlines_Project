@@ -1,5 +1,6 @@
 package com.project.controller;
 
+import com.project.models.Customer;
 import io.github.palexdev.materialfx.controls.MFXButton;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -13,6 +14,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 public class UserPageMyFlight_Controller {
 
@@ -20,6 +22,15 @@ public class UserPageMyFlight_Controller {
     private Stage stage;
     private Parent root;
     private Scene scene;
+
+    private Customer customer;
+
+
+    public void setCustomer(Customer customer) throws SQLException {
+        this.customer = customer;
+        user_Name.setText(customer.getFirstName() + customer.getLastName());
+        Email.setText(customer.getEmail());
+    }
     @FXML
     private ImageView Book;
 
@@ -54,9 +65,17 @@ public class UserPageMyFlight_Controller {
         stage.show();
     }
 
-    public void switchTo(MouseEvent event, String to) throws IOException{
+    public void switchTo(MouseEvent event, String to) throws IOException, SQLException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource(to));
         root = loader.load();
+        if (to.equals("User_Page_Checki_in.fxml")){
+            UserPageCheckInController a= loader.getController();
+            a.setCustomer(customer);
+        }
+        if (to.equals("User_Page.fxml")){
+            UserPage_Controller a= loader.getController();
+            a.setCustomer(customer);
+        }
         try {
             switchPage(event);
         } catch (IOException e) {

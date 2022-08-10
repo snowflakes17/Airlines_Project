@@ -6,6 +6,8 @@
 <?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.effect.DropShadow?>
@@ -91,6 +93,12 @@
                 <MenuItem mnemonicParsing="false" text="Action 2" />
               </items>
             </MenuButton>
+            <TableView fx:id="Results" disable="true" layoutX="52.0" layoutY="126.0" prefHeight="369.0" prefWidth="507.0" visible="false">
+              <columns>
+                <TableColumn prefWidth="75.0" text="C1" />
+                <TableColumn prefWidth="75.0" text="C2" />
+              </columns>
+            </TableView>
          </children></AnchorPane>
    </left>
    <right>
