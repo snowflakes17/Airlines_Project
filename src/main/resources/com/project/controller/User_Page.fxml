@@ -28,7 +28,7 @@
             </DropShadow>
          </effect>
          <children>
-            <ImageView fitHeight="61.0" fitWidth="552.0" layoutX="32.0" layoutY="31.0">
+            <ImageView disable="true" fitHeight="61.0" fitWidth="552.0" layoutX="32.0" layoutY="31.0">
                <image>
                   <Image url="@Assests/Rectangle%2011.png" />
                </image>
@@ -43,43 +43,41 @@
                   <Image url="@Assests/Group%204.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="Book" fitHeight="44.0" fitWidth="85.0" layoutX="90.0" layoutY="38.0">
+            <ImageView fx:id="Book" disable="true" fitHeight="44.0" fitWidth="85.0" layoutX="90.0" layoutY="38.0">
                <image>
                   <Image url="@Assests/Group%204%20(1).png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="192.0" layoutY="238.0" pickOnBounds="true" preserveRatio="true" />
-            <ImageView fitHeight="403.0" fitWidth="546.0" layoutX="34.0" layoutY="112.0">
+            <ImageView disable="true" fitHeight="403.0" fitWidth="546.0" layoutX="34.0" layoutY="112.0">
                <image>
                   <Image url="@Assests/Rectangle%2018.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="49.0" fitWidth="255.0" layoutX="93.0" layoutY="155.0" pickOnBounds="true" preserveRatio="true" />
-            <ImageView fitHeight="90.0" fitWidth="480.0" layoutX="64.0" layoutY="167.0">
+            <ImageView disable="true" fitHeight="90.0" fitWidth="480.0" layoutX="64.0" layoutY="167.0">
                <image>
                   <Image url="@Assests/Departure%20Form.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="52.0" fitWidth="480.0" layoutX="64.0" layoutY="268.0">
+            <ImageView disable="true" fitHeight="52.0" fitWidth="480.0" layoutX="64.0" layoutY="268.0">
                <image>
                   <Image url="@Assests/Select%20Depart.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="53.0" fitWidth="480.0" layoutX="64.0" layoutY="329.0">
+            <ImageView disable="true" fitHeight="53.0" fitWidth="480.0" layoutX="64.0" layoutY="329.0">
                <image>
                   <Image url="@Assests/Passengers.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="53.0" fitWidth="480.0" layoutX="63.0" layoutY="389.0">
+            <ImageView disable="true" fitHeight="53.0" fitWidth="480.0" layoutX="63.0" layoutY="389.0">
                <image>
                   <Image url="@Assests/Type.png" />
                </image>
             </ImageView>
-            <MFXButton fx:id="Find_Flight" layoutX="241.0" layoutY="453.0" prefHeight="39.0" prefWidth="119.0" styleClass="btn" text="Find Flight" />
+            <MFXButton fx:id="Find_Flight" layoutX="241.0" layoutY="453.0" onMouseClicked="#Search" prefHeight="39.0" prefWidth="119.0" styleClass="btn" text="Find Flight" />
             <Label layoutX="68.0" layoutY="126.0" prefHeight="33.0" prefWidth="128.0" text="Search Flights" />
             <TextField fx:id="Where_From" layoutX="132.0" layoutY="175.0" prefHeight="35.0" prefWidth="375.0" promptText="Where From" styleClass="text-fields" />
             <TextField fx:id="Where_To" layoutX="132.0" layoutY="214.0" prefHeight="35.0" prefWidth="375.0" promptText="Where To" styleClass="text-fields" />
-            <DatePicker fx:id="Dapart_Date" layoutX="127.0" layoutY="269.0" prefHeight="45.0" prefWidth="390.0" promptText="Select Depart" style="-fx-background-color: rgba(225,225,225,0.25); fx-text-fill: white; -fx-border-width: 0;" styleClass="text-fields" stylesheets="@Assests/Fx.css" />
+            <DatePicker fx:id="Depart_Date" layoutX="127.0" layoutY="269.0" prefHeight="45.0" prefWidth="390.0" promptText="Select Depart" style="-fx-background-color: rgba(225,225,225,0.25); fx-text-fill: white; -fx-border-width: 0;" styleClass="text-fields" stylesheets="@Assests/Fx.css" />
             <RadioButton fx:id="Economy" layoutX="142.0" layoutY="335.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="110.0" selected="true" styleClass="radios" text="Economy">
                <toggleGroup>
                   <ToggleGroup fx:id="Type" />
@@ -87,16 +85,22 @@
             </RadioButton>
             <RadioButton fx:id="Business" layoutX="274.0" layoutY="336.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="104.0" styleClass="radios" text="Business" toggleGroup="$Type" />
             <RadioButton fx:id="Both" layoutX="403.0" layoutY="335.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="106.0" styleClass="radios" text="Both" toggleGroup="$Type" />
-            <MenuButton fx:id="No_of_people" layoutX="137.0" layoutY="395.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="369.0" styleClass="radios" text="MenuButton">
+            <MenuButton fx:id="No_of_people" layoutX="137.0" layoutY="395.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="369.0" styleClass="radios" text="1 Adult, 0 Child, 0 Infant">
               <items>
-                <MenuItem mnemonicParsing="false" text="Action 1" />
-                <MenuItem mnemonicParsing="false" text="Action 2" />
+                <MenuItem mnemonicParsing="false" text="1 Adult, 0 Child, 0 Infant" />
+                <MenuItem mnemonicParsing="false" text="1 Adult, 2 Child, 0 Infant" />
+                  <MenuItem mnemonicParsing="false" text="2 Adult, 0 Child, 0 Infant" />
               </items>
             </MenuButton>
-            <TableView fx:id="Results" disable="true" layoutX="52.0" layoutY="126.0" prefHeight="369.0" prefWidth="507.0" visible="false">
+            <TableView fx:id="Results" disable="true" layoutX="35.0" layoutY="111.0" prefHeight="403.0" prefWidth="542.0" style="-fx-border-radius: 10; -fx-background-color: #F2994A;" visible="false">
               <columns>
-                <TableColumn prefWidth="75.0" text="C1" />
-                <TableColumn prefWidth="75.0" text="C2" />
+                <TableColumn prefWidth="35.0" text="No" />
+                  <TableColumn prefWidth="74.0" text="airline" />
+                  <TableColumn prefWidth="90.0" text="From" />
+                  <TableColumn prefWidth="83.0" text="To" />
+                  <TableColumn prefWidth="72.0" text="Start At" />
+                  <TableColumn prefWidth="91.0" text="Arrives At" />
+                <TableColumn text="Price" />
               </columns>
             </TableView>
          </children></AnchorPane>

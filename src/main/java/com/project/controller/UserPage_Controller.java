@@ -3,6 +3,7 @@ package com.project.controller;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import com.project.models.Customer;
@@ -40,7 +41,7 @@ public class UserPage_Controller implements Initializable{
     private ImageView Checkin;
 
     @FXML
-    private DatePicker Dapart_Date;
+    private DatePicker Depart_Date;
 
     @FXML
     private RadioButton Economy;
@@ -87,7 +88,19 @@ public class UserPage_Controller implements Initializable{
 
     @FXML
     void Search(MouseEvent event){
-
+        ArrayList<Node> off= new ArrayList<Node>();
+        off.add(Where_From);
+        off.add(Where_To);
+        off.add(No_of_people);
+        off.add(Depart_Date);
+        off.add(Economy);
+        off.add(Business);
+        off.add(Both);
+        for (Node node:off) {
+            node.setVisible(false);
+        }
+        Results.setVisible(true);
+        Results.setDisable(false);
     }
 
     public void switchPage(MouseEvent event) throws IOException{

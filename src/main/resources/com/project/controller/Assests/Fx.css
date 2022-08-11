@@ -52,6 +52,7 @@
   -fx-background-color: #FFFFFF;
   -fx-text-fill: #2A2A2A;
   -fx-border-color: #2A2A2A;
+  -fx-border-radius: 16;
 }
 
 .users {
