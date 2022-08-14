@@ -212,7 +212,7 @@ public class UserPage_Controller implements Initializable{
         for (Flight f:
              ResultList) {
             if (f.getSelect().isSelected()){
-                switchTo(event, "User_Page_Choose.fxml");
+                switchTo(event, "User_Page_Choose.fxml",f);
             }
         }
     }
@@ -256,12 +256,29 @@ public class UserPage_Controller implements Initializable{
             UserPageMyFlight_Controller a= loader.getController();
             a.setCustomer(customer);
         }
+        if (to.equals("User_Page_Choose.fxml")){
+
+        }
         try {
             switchPage(event);
         } catch (IOException e) {
             e.printStackTrace();
         }
 
+    }
+
+
+    public void switchTo(MouseEvent event, String to, Flight f) throws IOException, SQLException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(to));
+        root = loader.load();
+        UserPageChoose_Controller a= loader.getController();
+        a.setName(customer);
+        a.setFlight(f);
+        try {
+            switchPage(event);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
     @FXML
     void Logout(MouseEvent event) {
@@ -277,6 +294,24 @@ public class UserPage_Controller implements Initializable{
             Find_Flight.setDisable(false);
         }
     }
+    @FXML
+    void Dubai(MouseEvent event) {
+
+    }
+
+    @FXML
+    void Istanbul(MouseEvent event) {
+
+    }
+    @FXML
+    void next(MouseEvent event) {
+
+    }
+
+    @FXML
+    void SearchByRef(MouseEvent event) {
+
+    }
 
     @FXML
     private MFXListView<Flight> ListView;
@@ -287,7 +322,6 @@ public class UserPage_Controller implements Initializable{
         } catch (Exception e) {
             e.printStackTrace();}
     }
-
 
     @FXML
     void MyTrip(MouseEvent event){

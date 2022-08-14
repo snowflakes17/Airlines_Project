@@ -1,22 +1,33 @@
 package com.project.controller;
 
 import com.project.models.Customer;
+import com.project.models.Flight;
 import io.github.palexdev.materialfx.controls.MFXButton;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.net.URL;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.ResourceBundle;
 
-public class UserPageMyFlight_Controller {
+public class UserPageMyFlight_Controller implements Initializable {
 
 
     private Stage stage;
@@ -25,6 +36,7 @@ public class UserPageMyFlight_Controller {
 
     private Customer customer;
 
+    private ObservableList<Flight> ResultList = FXCollections.observableArrayList();
 
     public void setCustomer(Customer customer) throws SQLException {
         this.customer = customer;
@@ -38,10 +50,22 @@ public class UserPageMyFlight_Controller {
     private ImageView Checkin;
 
     @FXML
+    private ImageView Dubai;
+
+    @FXML
     private Label Email;
 
     @FXML
+    private Label Email1;
+
+    @FXML
+    private TableColumn<Flight, Integer> F_No;
+
+    @FXML
     private MFXButton Find_Flight;
+
+    @FXML
+    private ImageView Instanbul;
 
     @FXML
     private MFXButton Logout;
@@ -50,13 +74,57 @@ public class UserPageMyFlight_Controller {
     private ImageView MyTrips2;
 
     @FXML
-    private TextField Where_From;
+    private TextField Ref;
 
     @FXML
-    private TextField Where_To;
+    private TableView<Flight> Table;
+
+    @FXML
+    private TableColumn<Flight, Date> date;
+
+    @FXML
+    private TableColumn<Flight, String> from;
+
+    @FXML
+    private TextField last_name;
+
+    @FXML
+    private ImageView next;
+
+    @FXML
+    private TableColumn<Flight, String> to;
 
     @FXML
     private Label user_Name;
+
+
+
+    @FXML
+    void Dubai(MouseEvent event) {
+
+    }
+
+    @FXML
+    void Istanbul(MouseEvent event) {
+
+    }
+
+    @FXML
+    void next(MouseEvent event) {
+
+    }
+
+    @FXML
+    void searchbyref(MouseEvent event) {
+
+    }
+
+    public void setFlights(ArrayList<Flight> flights) throws SQLException {
+        for (Flight f:
+                flights) {
+            ResultList.add(f);
+        }
+    }
 
     public void switchPage(MouseEvent event) throws IOException {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -108,4 +176,13 @@ public class UserPageMyFlight_Controller {
             e.printStackTrace();}
     }
 
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        F_No.setCellValueFactory(new PropertyValueFactory<>("flightNumber"));
+        to.setCellValueFactory(new PropertyValueFactory<>("flightTo"));
+        from.setCellValueFactory(new PropertyValueFactory<>("flightFrom"));
+        date.setCellValueFactory(new PropertyValueFactory<>("flightStartTime"));
+        Table.setItems(ResultList);
+    }
 }

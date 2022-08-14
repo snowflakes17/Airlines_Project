@@ -110,10 +110,6 @@ public class Login_Controller implements Initializable {
         Choose_User.setVisible(false);
     }
 
-    @FXML
-    void Forgot(ActionEvent event) {
-        System.out.println("check");
-    }
 
     @FXML
     void Login(ActionEvent event) throws IOException,SQLException{

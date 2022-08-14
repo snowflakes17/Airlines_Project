@@ -61,10 +61,12 @@
                   <content>
                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
-                              <TableView layoutX="9.0" layoutY="6.0" prefHeight="330.0" prefWidth="495.0">
+                              <TableView fx:id="Table" layoutX="9.0" layoutY="6.0" prefHeight="330.0" prefWidth="495.0">
                                 <columns>
-                                  <TableColumn prefWidth="75.0" text="C1" />
-                                  <TableColumn prefWidth="75.0" text="C2" />
+                                  <TableColumn fx:id="F_No" prefWidth="81.0" text="Flight No" />
+                                  <TableColumn fx:id="from" prefWidth="113.0" text="From" />
+                                    <TableColumn fx:id="to" minWidth="0.0" prefWidth="136.0" text="To" />
+                                    <TableColumn fx:id="date" minWidth="0.0" prefWidth="164.0" text="Date" />
                                 </columns>
                               </TableView>
                            </children>
@@ -80,16 +82,16 @@
                                     <Image url="@Assests/Rectangle%2020.png" />
                                  </image>
                               </ImageView>
-                              <TextField fx:id="Where_From" layoutX="32.0" layoutY="57.0" prefHeight="35.0" prefWidth="442.0" promptText="Booking Reference" styleClass="text-fields" />
-                              <TextField fx:id="Where_To" layoutX="34.0" layoutY="93.0" prefHeight="35.0" prefWidth="441.0" promptText="Last name" styleClass="text-fields" />
+                              <TextField fx:id="Ref" layoutX="32.0" layoutY="57.0" prefHeight="35.0" prefWidth="442.0" promptText="Booking Reference" styleClass="text-fields" />
+                              <TextField fx:id="last_name" layoutX="34.0" layoutY="93.0" prefHeight="35.0" prefWidth="441.0" promptText="Last name" styleClass="text-fields" />
                               <ImageView fitHeight="2.0" fitWidth="428.0" layoutX="30.0" layoutY="92.0">
                                  <image>
                                     <Image url="@Assests/Vector%201.png" />
                                  </image>
                               </ImageView>
-                              <MFXButton fx:id="Find_Flight" layoutX="14.0" layoutY="142.0" prefHeight="39.0" prefWidth="472.0" style="-fx-border-color: none;" styleClass="btn" text="Continue" />
+                              <MFXButton fx:id="Find_Flight" layoutX="14.0" layoutY="142.0" onMouseClicked="#searchbyref" prefHeight="39.0" prefWidth="472.0" style="-fx-border-color: none;" styleClass="btn" text="Continue" />
                               <Label layoutX="18.0" layoutY="15.0" prefHeight="24.0" prefWidth="304.0" text="Find a trip by booking reference" />
-                              <ImageView fitHeight="140.0" fitWidth="200.0" layoutX="7.0" layoutY="202.0">
+                              <ImageView fx:id="Instanbul" fitHeight="140.0" fitWidth="200.0" layoutX="7.0" layoutY="202.0" onMouseClicked="#Istanbul">
                                  <image>
                                     <Image url="@Assests/fare2.png" />
                                  </image>
@@ -99,12 +101,12 @@
                                     <Image url="@Assests/Vector%201.png" />
                                  </image>
                               </ImageView>
-                              <ImageView fitHeight="140.0" fitWidth="200.0" layoutX="210.0" layoutY="202.0">
+                              <ImageView fx:id="Dubai" fitHeight="140.0" fitWidth="200.0" layoutX="210.0" layoutY="202.0" onMouseClicked="#Dubai">
                                  <image>
                                     <Image url="@Assests/fare3.png" />
                                  </image>
                               </ImageView>
-                              <ImageView fitHeight="41.0" fitWidth="41.0" layoutX="436.0" layoutY="250.0">
+                              <ImageView fx:id="next" fitHeight="41.0" fitWidth="41.0" layoutX="436.0" layoutY="250.0" onMouseClicked="#next">
                                  <image>
                                     <Image url="@Assests/bi_arrow-right-circle.png" />
                                  </image>
@@ -152,7 +154,9 @@
                   <Image url="@Assests/clarity_plane-line.png" />
                </image>
             </ImageView>
-            <MFXButton id="logout" fx:id="Logout" layoutX="166.0" layoutY="335.0" onMouseClicked="#Logout" prefHeight="40.0" prefWidth="80.0" style="-fx-font-size: 17;" styleClass="btn" text="Logout" />
+            <MFXButton id="logout" fx:id="Logout" layoutX="166.0" layoutY="370.0" onMouseClicked="#Logout" prefHeight="40.0" prefWidth="80.0" style="-fx-font-size: 17;" styleClass="btn" text="Logout" />
+            <Label fx:id="Email1" accessibleText="Name Will Be Here" layoutX="111.0" layoutY="323.0" prefHeight="26.0" prefWidth="122.0" stylesheets="@Assests/Fx.css" text="\$25" textOverrun="CENTER_WORD_ELLIPSIS" />
+            <Label layoutX="17.0" layoutY="322.0" prefHeight="27.0" prefWidth="89.0" styleClass="label-main" stylesheets="@Assests/Fx.css" text="Balance :" textOverrun="CENTER_WORD_ELLIPSIS" />
          </children>
       </AnchorPane>
    </right>
