@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import io.github.palexdev.materialfx.controls.MFXButton?>
+<?import io.github.palexdev.materialfx.controls.MFXComboBox?>
 <?import io.github.palexdev.materialfx.controls.MFXPasswordField?>
 <?import io.github.palexdev.materialfx.controls.MFXTextField?>
 <?import javafx.geometry.Insets?>
@@ -62,12 +63,12 @@
                </image>
             </ImageView>
             <MFXPasswordField fx:id="password" floatMode="BORDER" floatingText="   password" layoutX="204.0" layoutY="181.0" prefHeight="50.0" prefWidth="460.0" styleClass="signup-txtfield" />
-            <ImageView fx:id="box3" disable="true" fitHeight="67.0" fitWidth="210.0" layoutX="201.0" layoutY="260.0" opacity="0.72">
+            <ImageView fx:id="box3" disable="true" fitHeight="67.0" fitWidth="253.0" layoutX="201.0" layoutY="260.0" opacity="0.72">
                <image>
                   <Image url="@Assests/Bg-.png" />
                </image>
             </ImageView>
-            <MFXTextField fx:id="email" floatMode="BORDER" floatingText="   Email" layoutX="206.0" layoutY="267.0" prefHeight="54.0" prefWidth="200.0" style="-fx-text-fill: black;" styleClass="signup-txtfield">
+            <MFXTextField fx:id="email" floatMode="BORDER" floatingText="   Email" layoutX="206.0" layoutY="267.0" prefHeight="54.0" prefWidth="242.0" style="-fx-text-fill: black;" styleClass="signup-txtfield">
                <textFill>
                   <Color red="1.0" green="1.0" blue="1.0" opacity="0.8700000047683716" />
                </textFill>
@@ -87,23 +88,18 @@
                   <Color red="1.0" green="1.0" blue="1.0" opacity="0.8700000047683716" />
                </textFill>
             </MFXTextField>
-            <ImageView fx:id="box6" disable="true" fitHeight="66.0" fitWidth="229.0" layoutX="440.0" layoutY="261.0" opacity="0.72">
+            <ImageView fx:id="box6" disable="true" fitHeight="66.0" fitWidth="182.0" layoutX="484.0" layoutY="261.0" opacity="0.72">
                <image>
                   <Image url="@Assests/Bg-.png" />
                </image>
             </ImageView>
-            <MFXTextField fx:id="Credit_Card" floatMode="BORDER" floatingText="   Credit Card" layoutX="444.0" layoutY="267.0" prefHeight="54.0" prefWidth="221.0" style="-fx-text-fill: black;" styleClass="signup-txtfield">
-               <textFill>
-                  <Color red="1.0" green="1.0" blue="1.0" opacity="0.8700000047683716" />
-               </textFill>
-            </MFXTextField>
             <DatePicker fx:id="BirthDate" layoutX="207.0" layoutY="350.0" prefHeight="49.0" prefWidth="201.0" promptText=" Date of Birth" styleClass="signup-txtfield" />
             <ImageView fx:id="Approved" disable="true" fitHeight="187.0" fitWidth="212.0" layoutX="340.0" layoutY="147.0" opacity="0.0" style="-fx-blend-mode: darken;" visible="false">
                <image>
                   <Image url="@Assests/Approve.jpg" />
                </image>
             </ImageView>
-            <Button fx:id="backL" disable="true" layoutX="340.0" layoutY="352.0" mnemonicParsing="false" onAction="#backToLogin" opacity="0.0" prefHeight="54.0" prefWidth="180.0" styleClass="btn" text="Back To Login" visible="false" />
+            <Button fx:id="backL" disable="true" layoutX="350.0" layoutY="352.0" mnemonicParsing="false" onAction="#backToLogin" opacity="0.0" prefHeight="54.0" prefWidth="180.0" styleClass="btn" text="Back To Login" visible="false" />
             <Label fx:id="Must1" contentDisplay="CENTER" disable="true" layoutX="205.0" layoutY="70.0" lineSpacing="2.0" prefHeight="24.0" prefWidth="134.0" style="-fx-text-fill: black;" text="* must be filled" textAlignment="CENTER" underline="true" visible="false">
                <font>
                   <Font size="18.0" />
@@ -124,6 +120,7 @@
                   <Font size="18.0" />
                </font>
             </Label>
+            <MFXComboBox fx:id="Gender" editable="false" floatMode="BORDER" floatingText="  Gender" layoutX="489.0" layoutY="266.0" prefHeight="57.0" prefWidth="173.0" scrollOnOpen="true" styleClass="signup-txtfield" />
          </children>
       </AnchorPane>
    </center>

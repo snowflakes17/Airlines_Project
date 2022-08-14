@@ -43,18 +43,18 @@
                   <Label layoutX="25.0" layoutY="16.0" prefHeight="33.0" prefWidth="147.0" text="Check Eligibility" underline="true" />
                   <TextField fx:id="Booking" layoutX="23.0" layoutY="158.0" prefHeight="35.0" prefWidth="442.0" promptText="Booking Reference" styleClass="text-fields" />
                   <TextField fx:id="Last" layoutX="24.0" layoutY="196.0" prefHeight="35.0" prefWidth="441.0" promptText="Last name" styleClass="text-fields" />
-                  <ImageView fx:id="tab1" disable="true" fitHeight="35.0" fitWidth="162.0" layoutX="22.0" layoutY="105.0" visible="false">
+                  <ImageView fx:id="tab1" disable="true" fitHeight="35.0" fitWidth="162.0" layoutX="22.0" layoutY="105.0" onMouseClicked="#toggle" visible="false">
                      <image>
                         <Image url="@Assests/tab1.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="tab2" disable="true" fitHeight="33.0" fitWidth="161.0" layoutX="23.0" layoutY="105.0">
+                  <ImageView fx:id="tab2" fitHeight="33.0" fitWidth="161.0" layoutX="23.0" layoutY="105.0" onMouseClicked="#toggle">
                      <image>
                         <Image url="@Assests/tab2.png" />
                      </image>
                   </ImageView>
-                  <Label fx:id="Ref" layoutX="34.0" layoutY="109.0" style="-fx-text-fill: white;" text="Ref. No" />
-                  <Label fx:id="Ticket" layoutX="118.0" layoutY="109.0" text="Ticket" textFill="#1b1b1b" />
+                  <Label fx:id="Ref" layoutX="34.0" layoutY="109.0" onMouseClicked="#toggle" style="-fx-text-fill: white;" text="Ref. No" />
+                  <Label fx:id="Ticket" layoutX="118.0" layoutY="109.0" onMouseClicked="#toggle" text="Ticket" textFill="#1b1b1b" />
                   <Label layoutX="24.0" layoutY="47.0" prefHeight="28.0" prefWidth="476.0" style="-fx-font-size: 1em;" text="Check-in starts 72 hours before departure and ends 2 -hours before">
                      <font>
                         <Font size="10.0" />

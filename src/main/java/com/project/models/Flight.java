@@ -1,4 +1,6 @@
 package com.project.models;
+import javafx.scene.control.RadioButton;
+import javafx.scene.control.ToggleGroup;
 import lombok.*;
 
 import java.sql.ResultSet;
@@ -7,6 +9,7 @@ import java.util.Date;
 
 @Data
 public class Flight {
+
     private int flightNumber;
     private String AirlineId;
     private double flightPrice;
@@ -14,6 +17,7 @@ public class Flight {
     private String flightTo;
     private Date flightStartTime;
     private Date flightEndTime;
+    private RadioButton select;
 
     public Flight(ResultSet DataSet) throws SQLException {
         this.flightNumber = DataSet.getInt("flight_number");
@@ -23,5 +27,16 @@ public class Flight {
         this.flightStartTime = DataSet.getDate("flight_start_time");
         this.flightTo = DataSet.getString("flight_to");
         this.flightFrom = DataSet.getString("flight_from");
+        this.select = new RadioButton();
+    }
+
+    public Flight(){
+        this.flightNumber = 0;
+        this.flightPrice = 0.0;
+        this.AirlineId = " ";
+        this.flightEndTime = new Date();
+        this.flightStartTime = new Date();
+        this.flightTo = " ";
+        this.flightFrom = " ";
     }
 }

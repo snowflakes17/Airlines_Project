@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import io.github.palexdev.materialfx.controls.MFXButton?>
+<?import javafx.geometry.Point3D?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="605.0" prefWidth="900.0" stylesheets="@Assests/Fx.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.project.controller.UserPageChoose_Controller">
+   <left>
+      <AnchorPane id="main_user" fx:id="orange" prefHeight="605.0" prefWidth="615.0" style="-fx-background-color: #F2994A;" stylesheets="@Assests/Fx.css" BorderPane.alignment="CENTER">
+         <effect>
+            <DropShadow blurType="GAUSSIAN" height="0.24" radius="6.972499999999999" spread="0.13" width="29.65">
+               <color>
+                  <Color opacity="0.7241379022598267" />
+               </color>
+            </DropShadow>
+         </effect>
+         <children>
+            <ImageView fitHeight="61.0" fitWidth="552.0" layoutX="32.0" layoutY="31.0">
+               <image>
+                  <Image url="@Assests/Rectangle%2011.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="MyTrips" fitHeight="46.0" fitWidth="88.0" layoutX="258.0" layoutY="36.0" onMouseClicked="#MyTrip">
+               <image>
+                  <Image url="@Assests/Group%205.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="Checkin" fitHeight="47.0" fitWidth="90.0" layoutX="425.0" layoutY="36.0" onMouseClicked="#CheckIn">
+               <image>
+                  <Image url="@Assests/Group%204.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="Book" fitHeight="44.0" fitWidth="85.0" layoutX="90.0" layoutY="38.0">
+               <image>
+                  <Image url="@Assests/Group%204%20(1).png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="403.0" fitWidth="546.0" layoutX="34.0" layoutY="112.0">
+               <image>
+                  <Image url="@Assests/Rectangle%2018.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="74.0" layoutY="145.0" prefHeight="27.0" prefWidth="230.0" style="-fx-text-fill: rgb(40,40,40);" styleClass="label-main" text="Review Booking Detail" />
+            <ImageView fitHeight="22.0" fitWidth="200.0" layoutX="74.0" layoutY="172.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fitHeight="2.0" fitWidth="456.0" layoutX="75.0" layoutY="172.0">
+               <image>
+                  <Image url="@Assests/Vector%201.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="16.0" fitWidth="16.0" layoutX="76.0" layoutY="190.0">
+               <image>
+                  <Image url="@Assests/bi_info-circle.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="100.0" layoutY="185.0" prefHeight="26.0" prefWidth="427.0" style="-fx-text-fill: rgb(40,40,40); -fx-font-size: 1.2em;" text="Please make sure these details exactly match the">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Label>
+            <Label layoutX="100.0" layoutY="208.0" prefHeight="26.0" prefWidth="427.0" style="-fx-text-fill: rgb(40,40,40); -fx-font-size: 1.2em;" text="identity document. It can’t be changed once book">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Label>
+            <Label layoutX="100.0" layoutY="231.0" prefHeight="26.0" prefWidth="427.0" style="-fx-text-fill: rgb(40,40,40); -fx-font-size: 1.2em;" text="ing is completed.">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="91.0" fitWidth="464.0" layoutX="70.0" layoutY="274.0">
+               <image>
+                  <Image url="@Assests/tab_2.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="Name" layoutX="109.0" layoutY="310.0" prefHeight="27.0" prefWidth="230.0" style="-fx-text-fill: rgb(40,40,40);" styleClass="label-main" text="First Name / Last Name" />
+            <Label fx:id="group" layoutX="109.0" layoutY="282.0" prefHeight="23.0" prefWidth="45.0" style="-fx-text-fill: rgb(40,40,40); -fx-font-size: 1.2em;" text="Adult">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Label>
+            <MFXButton fx:id="Pay" layoutX="72.0" layoutY="373.0" onMouseClicked="#gotopay" prefHeight="40.0" prefWidth="458.0" styleClass="btn1" stylesheets="@Assests/approve.css" text="Continue to Payment" />
+            <MFXButton fx:id="Choose_seat" layoutX="72.0" layoutY="423.0" onMouseClicked="#GotoChoose" prefHeight="40.0" prefWidth="458.0" styleClass="btn2" stylesheets="@Assests/approve.css" text="Choose a Seat" />
+            <ImageView fx:id="cover1" blendMode="MULTIPLY" disable="true" fitHeight="21.0" fitWidth="24.0" layoutX="100.0" layoutY="225.0" opacity="0.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@Assests/black.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="cover2" blendMode="MULTIPLY" disable="true" fitHeight="21.0" fitWidth="24.0" layoutX="152.0" layoutY="224.0" opacity="0.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@Assests/black.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="cover3" blendMode="MULTIPLY" disable="true" fitHeight="86.0" fitWidth="21.0" layoutX="177.0" layoutY="224.0" opacity="0.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@Assests/black.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="cover4" blendMode="MULTIPLY" disable="true" fitHeight="21.0" fitWidth="24.0" layoutX="176.0" layoutY="250.0" opacity="0.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@Assests/black.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="cover5" blendMode="MULTIPLY" disable="true" fitHeight="21.0" fitWidth="24.0" layoutX="151.0" layoutY="250.0" opacity="0.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@Assests/black.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="cover6" blendMode="MULTIPLY" disable="true" fitHeight="21.0" fitWidth="24.0" layoutX="100.0" layoutY="251.0" opacity="0.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@Assests/black.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="cover7" blendMode="MULTIPLY" disable="true" fitHeight="21.0" fitWidth="24.0" layoutX="100.0" layoutY="277.0" opacity="0.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@Assests/black.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="cover8" blendMode="MULTIPLY" disable="true" fitHeight="21.0" fitWidth="24.0" layoutX="150.0" layoutY="277.0" opacity="0.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@Assests/black.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="cover9" blendMode="MULTIPLY" disable="true" fitHeight="21.0" fitWidth="24.0" layoutX="176.0" layoutY="278.0" opacity="0.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@Assests/black.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="cover10" blendMode="MULTIPLY" disable="true" fitHeight="21.0" fitWidth="24.0" layoutX="100.0" layoutY="304.0" opacity="0.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@Assests/black.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="cover11" blendMode="MULTIPLY" disable="true" fitHeight="21.0" fitWidth="24.0" layoutX="151.0" layoutY="305.0" opacity="0.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@Assests/black.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="cover12" blendMode="MULTIPLY" disable="true" fitHeight="21.0" fitWidth="24.0" layoutX="177.0" layoutY="305.0" opacity="0.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <rotationAxis>
+                  <Point3D x="-7.0" z="1.0" />
+               </rotationAxis>
+               <image>
+                  <Image url="@Assests/black.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="cover13" blendMode="MULTIPLY" disable="true" fitHeight="21.0" fitWidth="24.0" layoutX="100.0" layoutY="331.0" opacity="0.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <rotationAxis>
+                  <Point3D x="-7.0" z="1.0" />
+               </rotationAxis>
+               <image>
+                  <Image url="@Assests/black.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="cover14" blendMode="MULTIPLY" disable="true" fitHeight="21.0" fitWidth="24.0" layoutX="150.0" layoutY="330.0" opacity="0.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <rotationAxis>
+                  <Point3D x="-7.0" z="1.0" />
+               </rotationAxis>
+               <image>
+                  <Image url="@Assests/black.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="cover15" blendMode="MULTIPLY" disable="true" fitHeight="21.0" fitWidth="24.0" layoutX="176.0" layoutY="330.0" opacity="0.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <rotationAxis>
+                  <Point3D x="-7.0" z="1.0" />
+               </rotationAxis>
+               <image>
+                  <Image url="@Assests/black.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="cover16" blendMode="MULTIPLY" disable="true" fitHeight="25.0" fitWidth="23.0" layoutX="100.0" layoutY="356.0" opacity="0.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <rotationAxis>
+                  <Point3D x="-7.0" z="1.0" />
+               </rotationAxis>
+               <image>
+                  <Image url="@Assests/black.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="cover17" blendMode="MULTIPLY" disable="true" fitHeight="21.0" fitWidth="24.0" layoutX="152.0" layoutY="358.0" opacity="0.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <rotationAxis>
+                  <Point3D x="-7.0" z="1.0" />
+               </rotationAxis>
+               <image>
+                  <Image url="@Assests/black.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="cover18" blendMode="MULTIPLY" disable="true" fitHeight="21.0" fitWidth="24.0" layoutX="178.0" layoutY="358.0" opacity="0.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <rotationAxis>
+                  <Point3D x="-7.0" z="1.0" />
+               </rotationAxis>
+               <image>
+                  <Image url="@Assests/black.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="cover19" blendMode="MULTIPLY" disable="true" fitHeight="21.0" fitWidth="24.0" layoutX="99.0" layoutY="384.0" opacity="0.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@Assests/black.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="cover20" blendMode="MULTIPLY" disable="true" fitHeight="21.0" fitWidth="24.0" layoutX="151.0" layoutY="385.0" opacity="0.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@Assests/black.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="cover21" blendMode="MULTIPLY" disable="true" fitHeight="21.0" fitWidth="24.0" layoutX="177.0" layoutY="385.0" opacity="0.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@Assests/black.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="cover22" blendMode="MULTIPLY" disable="true" fitHeight="21.0" fitWidth="24.0" layoutX="99.0" layoutY="411.0" opacity="0.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@Assests/black.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="cover23" blendMode="MULTIPLY" disable="true" fitHeight="21.0" fitWidth="24.0" layoutX="151.0" layoutY="413.0" opacity="0.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@Assests/black.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="cover24" blendMode="MULTIPLY" disable="true" fitHeight="21.0" fitWidth="24.0" layoutX="177.0" layoutY="412.0" opacity="0.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@Assests/black.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="cover25" blendMode="MULTIPLY" disable="true" fitHeight="21.0" fitWidth="24.0" layoutX="99.0" layoutY="439.0" opacity="0.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@Assests/black.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="cover26" blendMode="MULTIPLY" disable="true" fitHeight="21.0" fitWidth="24.0" layoutX="99.0" layoutY="466.0" opacity="0.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@Assests/black.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="cover27" blendMode="MULTIPLY" disable="true" fitHeight="21.0" fitWidth="24.0" layoutX="151.0" layoutY="467.0" opacity="0.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@Assests/black.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="cover28" blendMode="MULTIPLY" disable="true" fitHeight="21.0" fitWidth="24.0" layoutX="177.0" layoutY="467.0" opacity="0.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@Assests/black.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="cover29" blendMode="MULTIPLY" disable="true" fitHeight="21.0" fitWidth="24.0" layoutX="151.0" layoutY="440.0" opacity="0.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@Assests/black.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="cover30" blendMode="MULTIPLY" disable="true" fitHeight="21.0" fitWidth="24.0" layoutX="177.0" layoutY="440.0" opacity="0.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@Assests/black.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="Chooseb_Label" layoutX="273.0" layoutY="127.0" prefHeight="56.0" prefWidth="164.0" style="-fx-font-size: 1.5em;" styleClass="label-main" text="Choosen Seat" visible="false" />
+            <ImageView fx:id="spliter2" fitHeight="3.0" fitWidth="272.0" layoutX="274.0" layoutY="169.0" visible="false">
+               <image>
+                  <Image url="@Assests/Vector%201.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="black2" layoutX="273.0" layoutY="212.0" visible="false">
+               <image>
+                  <Image url="@Assests/black.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="Choosen" alignment="CENTER" contentDisplay="CENTER" layoutX="289.0" layoutY="228.0" prefHeight="73.0" prefWidth="73.0" style="-fx-text-fill: #F2994A; -fx-font-size: 4em;" styleClass="label-main" text="3F" textAlignment="CENTER" textFill="WHITE" visible="false" />
+            <Label fx:id="label_warn1" layoutX="430.0" layoutY="238.0" prefHeight="23.0" prefWidth="122.0" style="-fx-font-size: 0.9em;" styleClass="label-main" text="Seat already place" visible="false" />
+            <Label fx:id="label_warn2" layoutX="273.0" layoutY="178.0" prefHeight="23.0" prefWidth="285.0" style="-fx-font-size: 0.9em;" styleClass="label-main" text="Click your desired seat in the image on the left" visible="false" />
+            <Label fx:id="label_warn3" layoutX="430.0" layoutY="253.0" prefHeight="23.0" prefWidth="99.0" style="-fx-font-size: 0.9em;" styleClass="label-main" text="Please choose" visible="false" />
+            <ImageView fx:id="icon_warn" fitHeight="39.0" fitWidth="39.0" layoutX="385.0" layoutY="247.0" visible="false">
+               <image>
+                  <Image url="@Assests/error-512.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="label_warn4" layoutX="430.0" layoutY="268.0" prefHeight="23.0" prefWidth="99.0" style="-fx-font-size: 0.9em;" styleClass="label-main" text="another seat" visible="false" />
+            <Button fx:id="PlaceSeat" layoutX="270.0" layoutY="340.0" mnemonicParsing="false" onMouseClicked="#PlaceSeat" prefHeight="32.0" prefWidth="280.0" styleClass="btn" text="Place Seat" visible="false" />
+         </children></AnchorPane>
+   </left>
+   <right>
+      <AnchorPane fx:id="user" prefHeight="600.0" prefWidth="274.0" style="-fx-background-color: beige;" BorderPane.alignment="CENTER">
+         <children>
+            <Label fx:id="user_Name" accessibleText="Name Will Be Here" layoutX="93.0" layoutY="255.0" prefHeight="26.0" prefWidth="154.0" stylesheets="@Assests/Fx.css" text="Name Will Be here" textOverrun="CENTER_WORD_ELLIPSIS" />
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="31.0" layoutY="66.0" pickOnBounds="true" preserveRatio="true" styleClass="profile" />
+            <ImageView fitHeight="179.0" fitWidth="180.0" layoutX="47.0" layoutY="63.0">
+               <image>
+                  <Image url="@Assests/Profile.png" />
+               </image>
+               <effect>
+                  <DropShadow height="15.07" radius="7.035" width="15.07">
+                     <color>
+                        <Color opacity="0.6781609058380127" />
+                     </color>
+                  </DropShadow>
+               </effect>
+            </ImageView>
+            <Label layoutX="17.0" layoutY="255.0" prefHeight="27.0" prefWidth="68.0" styleClass="label-main" stylesheets="@Assests/Fx.css" text="Name :" textOverrun="CENTER_WORD_ELLIPSIS" />
+            <Label fx:id="Email" accessibleText="Name Will Be Here" layoutX="93.0" layoutY="290.0" prefHeight="26.0" prefWidth="154.0" stylesheets="@Assests/Fx.css" text="Email@gmail.com" textOverrun="CENTER_WORD_ELLIPSIS" />
+            <Label layoutX="17.0" layoutY="290.0" prefHeight="27.0" prefWidth="68.0" styleClass="label-main" stylesheets="@Assests/Fx.css" text="Email :" textOverrun="CENTER_WORD_ELLIPSIS" />
+            <ImageView fitHeight="176.0" fitWidth="200.0" layoutX="69.0" layoutY="429.0">
+               <image>
+                  <Image url="@Assests/clarity_plane-line.png" />
+               </image>
+            </ImageView>
+            <MFXButton id="logout" fx:id="Logout" layoutX="166.0" layoutY="335.0" onMouseClicked="#Logout" prefHeight="40.0" prefWidth="80.0" style="-fx-font-size: 17;" styleClass="btn" text="Logout" />
+         </children>
+      </AnchorPane>
+   </right>
+</BorderPane>

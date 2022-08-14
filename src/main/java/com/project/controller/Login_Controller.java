@@ -5,6 +5,7 @@ import com.project.models.Flight;
 import io.github.palexdev.materialfx.controls.MFXButton;
 import javafx.animation.FadeTransition;
 import javafx.animation.TranslateTransition;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -133,18 +134,15 @@ public class Login_Controller implements Initializable {
                     System.out.println(bcryptHashString);
                     if (BCrypt.checkpw(password, bcryptHashString)) {
                         PreparedStatement get_all = s.getConnection().prepareStatement("SELECT * from `Passenger`WHERE passenger_email = '" + uname_field.getText() +"'");
-                        PreparedStatement get_flight = s.getConnection().prepareStatement("SELECT * from `Flight`");
                         ResultSet get_a = get_all.executeQuery();
-                        ResultSet get_b = get_flight.executeQuery();
                         try {
-                            if (get_a.next() && get_b.next()){
+                            ArrayList<Flight> pass = new ArrayList<Flight>();
+                            if (get_a.next()){
                                 Customer addis = new Customer(get_a);
-                                Flight fl = new Flight(get_b);
                                 FXMLLoader loader = new FXMLLoader(getClass().getResource("User_Page.fxml"));
                                 root = (Parent) loader.load();
                                 UserPage_Controller a= loader.getController();
                                 a.setCustomer(addis);
-                                a.setFlights(fl);
                                 switchPage(event);
                             }
                         } catch (IOException e) {

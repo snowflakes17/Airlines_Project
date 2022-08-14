@@ -15,7 +15,7 @@ public class Customer implements User {
     private String password;
     private final Date dateOfBirth;
     private String countryOfCitiznship;
-    private String creditCard;
+    private String gender;
     private String countryOfResidence;
     private final Date createdAt;
     private Date updatedAt;
@@ -32,7 +32,7 @@ public class Customer implements User {
         this.countryOfCitiznship = DataSet.getString("passenger_Citiznship");
         this.countryOfResidence = DataSet.getString("passenger_Residence");
         this.passportNumber = DataSet.getString("passenger_passport_number");
-        this.creditCard = DataSet.getString("passenger_creditCard");
+        this.gender = DataSet.getString("passenger_gender");
         this.createdAt = DataSet.getDate("createdAt");
         this.updatedAt = DataSet.getDate("updatedAt");
     }
@@ -46,7 +46,7 @@ public class Customer implements User {
         this.countryOfCitiznship = null;
         this.countryOfResidence = null;
         this.passportNumber = null;
-        this.creditCard = null;
+        this.gender = null;
         this.createdAt = null;
         this.updatedAt = null;
     }

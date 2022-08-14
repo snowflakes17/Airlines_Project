@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import io.github.palexdev.materialfx.controls.MFXButton?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.MenuButton?>
@@ -19,7 +20,7 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="605.0" prefWidth="900.0" stylesheets="@Assests/Fx.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.project.controller.UserPage_Controller">
    <left>
-      <AnchorPane id="main_user" prefHeight="605.0" prefWidth="615.0" style="-fx-background-color: #F2994A;" stylesheets="@Assests/Fx.css" BorderPane.alignment="CENTER">
+      <AnchorPane id="main_user" fx:id="orange" prefHeight="605.0" prefWidth="615.0" style="-fx-background-color: #F2994A;" stylesheets="@Assests/Fx.css" BorderPane.alignment="CENTER">
          <effect>
             <DropShadow blurType="GAUSSIAN" height="0.24" radius="6.972499999999999" spread="0.13" width="29.65">
                <color>
@@ -53,31 +54,31 @@
                   <Image url="@Assests/Rectangle%2018.png" />
                </image>
             </ImageView>
-            <ImageView disable="true" fitHeight="90.0" fitWidth="480.0" layoutX="64.0" layoutY="167.0">
+            <ImageView fx:id="Where" disable="true" fitHeight="90.0" fitWidth="480.0" layoutX="64.0" layoutY="167.0">
                <image>
                   <Image url="@Assests/Departure%20Form.png" />
                </image>
             </ImageView>
-            <ImageView disable="true" fitHeight="52.0" fitWidth="480.0" layoutX="64.0" layoutY="268.0">
+            <ImageView fx:id="Calendar" disable="true" fitHeight="52.0" fitWidth="480.0" layoutX="64.0" layoutY="268.0">
                <image>
                   <Image url="@Assests/Select%20Depart.png" />
                </image>
             </ImageView>
-            <ImageView disable="true" fitHeight="53.0" fitWidth="480.0" layoutX="64.0" layoutY="329.0">
+            <ImageView fx:id="Group" disable="true" fitHeight="53.0" fitWidth="480.0" layoutX="64.0" layoutY="329.0">
                <image>
                   <Image url="@Assests/Passengers.png" />
                </image>
             </ImageView>
-            <ImageView disable="true" fitHeight="53.0" fitWidth="480.0" layoutX="63.0" layoutY="389.0">
+            <ImageView fx:id="passenger" disable="true" fitHeight="53.0" fitWidth="480.0" layoutX="63.0" layoutY="389.0">
                <image>
                   <Image url="@Assests/Type.png" />
                </image>
             </ImageView>
-            <MFXButton fx:id="Find_Flight" layoutX="241.0" layoutY="453.0" onMouseClicked="#Search" prefHeight="39.0" prefWidth="119.0" styleClass="btn" text="Find Flight" />
-            <Label layoutX="68.0" layoutY="126.0" prefHeight="33.0" prefWidth="128.0" text="Search Flights" />
+            <MFXButton fx:id="Find_Flight" disable="true" layoutX="241.0" layoutY="453.0" onMouseClicked="#Search" prefHeight="39.0" prefWidth="119.0" styleClass="btn" text="Find Flight" />
+            <Label fx:id="lable" layoutX="68.0" layoutY="126.0" prefHeight="33.0" prefWidth="128.0" text="Search Flights" />
             <TextField fx:id="Where_From" layoutX="132.0" layoutY="175.0" prefHeight="35.0" prefWidth="375.0" promptText="Where From" styleClass="text-fields" />
             <TextField fx:id="Where_To" layoutX="132.0" layoutY="214.0" prefHeight="35.0" prefWidth="375.0" promptText="Where To" styleClass="text-fields" />
-            <DatePicker fx:id="Depart_Date" layoutX="127.0" layoutY="269.0" prefHeight="45.0" prefWidth="390.0" promptText="Select Depart" style="-fx-background-color: rgba(225,225,225,0.25); fx-text-fill: white; -fx-border-width: 0;" styleClass="text-fields" stylesheets="@Assests/Fx.css" />
+            <DatePicker fx:id="Depart_Date" layoutX="127.0" layoutY="269.0" onInputMethodTextChanged="#Book" prefHeight="45.0" prefWidth="390.0" promptText="Select Depart" style="-fx-background-color: rgba(225,225,225,0.25); fx-text-fill: white; -fx-border-width: 0;" styleClass="text-fields" stylesheets="@Assests/Fx.css" />
             <RadioButton fx:id="Economy" layoutX="142.0" layoutY="335.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="110.0" selected="true" styleClass="radios" text="Economy">
                <toggleGroup>
                   <ToggleGroup fx:id="Type" />
@@ -85,28 +86,35 @@
             </RadioButton>
             <RadioButton fx:id="Business" layoutX="274.0" layoutY="336.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="104.0" styleClass="radios" text="Business" toggleGroup="$Type" />
             <RadioButton fx:id="Both" layoutX="403.0" layoutY="335.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="106.0" styleClass="radios" text="Both" toggleGroup="$Type" />
-            <MenuButton fx:id="No_of_people" layoutX="137.0" layoutY="395.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="369.0" styleClass="radios" text="1 Adult, 0 Child, 0 Infant">
+            <MenuButton fx:id="No_of_people" layoutX="137.0" layoutY="395.0" mnemonicParsing="false" onMouseClicked="#check" prefHeight="36.0" prefWidth="369.0" styleClass="radios" text="1 Adult, 0 Child, 0 Infant">
               <items>
                 <MenuItem mnemonicParsing="false" text="1 Adult, 0 Child, 0 Infant" />
                 <MenuItem mnemonicParsing="false" text="1 Adult, 2 Child, 0 Infant" />
                   <MenuItem mnemonicParsing="false" text="2 Adult, 0 Child, 0 Infant" />
               </items>
             </MenuButton>
-            <TableView fx:id="Results" disable="true" layoutX="35.0" layoutY="111.0" prefHeight="403.0" prefWidth="542.0" style="-fx-border-radius: 10; -fx-background-color: #F2994A;" visible="false">
+            <TableView fx:id="Results" disable="true" layoutX="35.0" layoutY="111.0" prefHeight="403.0" prefWidth="542.0" stylesheets="@Assests/Fx.css" visible="false">
               <columns>
-                <TableColumn prefWidth="35.0" text="No" />
-                  <TableColumn prefWidth="74.0" text="airline" />
-                  <TableColumn prefWidth="90.0" text="From" />
-                  <TableColumn prefWidth="83.0" text="To" />
-                  <TableColumn prefWidth="72.0" text="Start At" />
-                  <TableColumn prefWidth="91.0" text="Arrives At" />
-                <TableColumn text="Price" />
+                  <TableColumn fx:id="No1" prefWidth="28.0" />
+                <TableColumn fx:id="No" prefWidth="78.0" text="No" />
+                  <TableColumn fx:id="airline" prefWidth="66.0" text="airline" />
+                  <TableColumn fx:id="form" prefWidth="138.0" text="From" />
+                  <TableColumn fx:id="to" prefWidth="110.0" text="To" />
+                  <TableColumn fx:id="startat" prefWidth="65.0" text="Start At" />
+                  <TableColumn fx:id="arrivesat" prefWidth="41.0" text="Arrives At" />
+                <TableColumn fx:id="price" prefWidth="68.0" text="Price" />
               </columns>
             </TableView>
+            <Button fx:id="book" disable="true" layoutX="271.0" layoutY="539.0" mnemonicParsing="false" onMouseClicked="#Book" styleClass="btn" text="Book" visible="false" />
+            <ImageView fx:id="back" blendMode="LIGHTEN" fitHeight="21.0" fitWidth="27.0" layoutX="5.0" layoutY="115.0" onMouseClicked="#back" visible="false">
+               <image>
+                  <Image url="@Assests/back.png" />
+               </image>
+            </ImageView>
          </children></AnchorPane>
    </left>
    <right>
-      <AnchorPane prefHeight="600.0" prefWidth="274.0" style="-fx-background-color: beige;" BorderPane.alignment="CENTER">
+      <AnchorPane fx:id="user" prefHeight="600.0" prefWidth="274.0" style="-fx-background-color: beige;" BorderPane.alignment="CENTER">
          <children>
             <Label fx:id="user_Name" accessibleText="Name Will Be Here" layoutX="93.0" layoutY="255.0" prefHeight="26.0" prefWidth="154.0" stylesheets="@Assests/Fx.css" text="Name Will Be here" textOverrun="CENTER_WORD_ELLIPSIS" />
             <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="31.0" layoutY="66.0" pickOnBounds="true" preserveRatio="true" styleClass="profile" />

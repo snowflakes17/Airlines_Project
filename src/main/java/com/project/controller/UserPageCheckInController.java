@@ -12,6 +12,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -70,6 +71,7 @@ public class UserPageCheckInController {
     @FXML
     private Label user_Name;
 
+    private boolean toggle = false;
 
     public void switchPage(MouseEvent event) throws IOException {
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -97,6 +99,26 @@ public class UserPageCheckInController {
 
     }
 
+    @FXML
+    void toggle(MouseEvent event) {
+        if (!toggle){
+            tab1.setDisable(false);
+            tab2.setVisible(false);
+            tab2.setDisable(true);
+            tab1.setVisible(true);
+            Ref.setTextFill(Color.BLACK);
+            Ticket.setTextFill(Color.WHITE);
+        }
+        else{
+            tab2.setDisable(false);
+            tab1.setVisible(false);
+            tab1.setDisable(true);
+            tab2.setVisible(true);
+            Ref.setTextFill(Color.WHITE);
+            Ticket.setTextFill(Color.BLACK);
+        }
+        toggle = !toggle;
+    }
 
     @FXML
     void Book(MouseEvent event) {

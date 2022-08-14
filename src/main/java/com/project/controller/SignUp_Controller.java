@@ -1,12 +1,14 @@
 package com.project.controller;
 
 import io.github.palexdev.materialfx.controls.MFXButton;
+import io.github.palexdev.materialfx.controls.MFXComboBox;
 import io.github.palexdev.materialfx.controls.MFXPasswordField;
 import io.github.palexdev.materialfx.controls.MFXTextField;
 import javafx.animation.FadeTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -19,6 +21,7 @@ import javafx.util.Duration;
 import org.mindrot.jbcrypt.BCrypt;
 
 import java.io.IOException;
+import java.net.URL;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -26,8 +29,9 @@ import java.sql.Statement;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.ResourceBundle;
 
-public class SignUp_Controller {
+public class SignUp_Controller implements Initializable {
 
     private Parent root;
     private Stage stage;
@@ -44,8 +48,7 @@ public class SignUp_Controller {
     private DatePicker BirthDate;
 
     @FXML
-    private MFXTextField Credit_Card;
-
+    private MFXComboBox Gender;
     @FXML
     private MFXTextField FullName;
 
@@ -123,7 +126,7 @@ public class SignUp_Controller {
                 System.out.println(bcryptHashString.length());
                 String sql = "INSERT INTO `Passenger` (passenger_first_name, " +
                         "passenger_last_name,passenger_dateOfBirth,passenger_email," +
-                        "passenger_creditCard,passenger_password,passenger_passport_number,"+
+                        "passenger_gender,passenger_password,passenger_passport_number,"+
                         "passenger_Citiznship,passenger_Residence,createdAt,updatedAt)" +
                         " VALUES( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
                 String[] Name = FullName.getText().split(" ");
@@ -132,7 +135,7 @@ public class SignUp_Controller {
                 p.setString(2, Name.length > 1 ? Name[1] : " ");
                 p.setDate(3, Date.valueOf(BirthDate.getValue()));
                 p.setString(4, email.getText());
-                p.setString(5, Credit_Card.getText());
+                p.setString(5, Gender.getText());
                 p.setString(6, bcryptHashString);
                 p.setString(7, PassportNo.getText());
                 p.setString(8, " ");
@@ -163,7 +166,7 @@ public class SignUp_Controller {
                 Off.add(PassportNo);
                 Off.add(password);
                 Off.add(email);
-                Off.add(Credit_Card);
+                Off.add(Gender);
                 Off.add(Back);
 
                 for (Node k :
@@ -211,4 +214,8 @@ public class SignUp_Controller {
         }
     }
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        Gender.getItems().addAll("M", "F");
+    }
 }

@@ -1,0 +1,43 @@
+
+.btn1 {
+    -fx-background-color: #377513;
+    -fx-background-radius: 15;
+    -fx-border-radius: 6;
+    -fx-border-width: 2px;
+    -fx-border-color: rgb(255, 255, 255);
+    -fx-font-family: "Montserrat";
+    -fx-font-size: 1.3em;
+    -fx-font-weight: 800;
+    -fx-padding: 5;
+    -fx-text-fill: white;
+    -fx-alignment: CENTER;
+}
+
+
+.btn1:hover {
+    -fx-background-color: #193D05;
+    -fx-text-fill:  #FFFFFF;
+    -fx-border-color:  #FFFFFF;
+}
+
+.btn2 {
+    -fx-background-color: #FFFFFF;
+    -fx-text-fill:  #377513;
+    -fx-border-color:  #377513;
+    -fx-background-radius: 15;
+    -fx-border-radius: 6;
+    -fx-border-width: 2px;
+    -fx-font-family: "Montserrat";
+    -fx-font-size: 1.3em;
+    -fx-font-weight: 800;
+    -fx-padding: 5;
+    -fx-alignment: CENTER;
+}
+
+
+.btn2:hover {
+    -fx-text-fill: #193D05;
+    -fx-border-color: rgb(255, 255, 255);
+    -fx-background-color: #e1e1e1;
+}
+
