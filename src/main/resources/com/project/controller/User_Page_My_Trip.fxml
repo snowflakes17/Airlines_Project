@@ -63,10 +63,11 @@
                            <children>
                               <TableView fx:id="Table" layoutX="9.0" layoutY="6.0" prefHeight="330.0" prefWidth="495.0">
                                 <columns>
-                                  <TableColumn fx:id="F_No" prefWidth="81.0" text="Flight No" />
-                                  <TableColumn fx:id="from" prefWidth="113.0" text="From" />
-                                    <TableColumn fx:id="to" minWidth="0.0" prefWidth="136.0" text="To" />
-                                    <TableColumn fx:id="date" minWidth="0.0" prefWidth="164.0" text="Date" />
+                                    <TableColumn fx:id="date" minWidth="0.0" prefWidth="88.0" text="Ticket No" />
+                                  <TableColumn fx:id="F_No" prefWidth="70.0" text="Flight No" />
+                                  <TableColumn fx:id="from" prefWidth="118.0" text="Passenger Id" />
+                                    <TableColumn fx:id="to" minWidth="0.0" prefWidth="218.0" text="Purchase Date" />
+                                    <TableColumn fx:id="seat" minWidth="0.0" prefWidth="164.0" text="Seat" />
                                 </columns>
                               </TableView>
                            </children>
@@ -155,7 +156,7 @@
                </image>
             </ImageView>
             <MFXButton id="logout" fx:id="Logout" layoutX="166.0" layoutY="370.0" onMouseClicked="#Logout" prefHeight="40.0" prefWidth="80.0" style="-fx-font-size: 17;" styleClass="btn" text="Logout" />
-            <Label fx:id="Email1" accessibleText="Name Will Be Here" layoutX="111.0" layoutY="323.0" prefHeight="26.0" prefWidth="122.0" stylesheets="@Assests/Fx.css" text="\$25" textOverrun="CENTER_WORD_ELLIPSIS" />
+            <Label fx:id="Balance" accessibleText="Name Will Be Here" layoutX="111.0" layoutY="323.0" prefHeight="26.0" prefWidth="122.0" stylesheets="@Assests/Fx.css" text="\$25" textOverrun="CENTER_WORD_ELLIPSIS" />
             <Label layoutX="17.0" layoutY="322.0" prefHeight="27.0" prefWidth="89.0" styleClass="label-main" stylesheets="@Assests/Fx.css" text="Balance :" textOverrun="CENTER_WORD_ELLIPSIS" />
          </children>
       </AnchorPane>

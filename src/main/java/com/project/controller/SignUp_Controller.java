@@ -29,6 +29,7 @@ import java.sql.Statement;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import java.util.ResourceBundle;
 
 public class SignUp_Controller implements Initializable {
@@ -64,6 +65,8 @@ public class SignUp_Controller implements Initializable {
     @FXML
     private Label Must4;
 
+    @FXML
+    private Label Must5;
     @FXML
     private MFXTextField PassportNo;
 
@@ -117,6 +120,9 @@ public class SignUp_Controller implements Initializable {
             if(BirthDate.getValue() == null)
                 Must4.setVisible(true);
             else Must4.setVisible(false);
+            if(PassportNo.getText() == "")
+                Must5.setVisible(true);
+            else Must5.setVisible(false);
         }
         else {
             Statement st = ConnectDB.getConnection();
@@ -127,9 +133,10 @@ public class SignUp_Controller implements Initializable {
                 String sql = "INSERT INTO `Passenger` (passenger_first_name, " +
                         "passenger_last_name,passenger_dateOfBirth,passenger_email," +
                         "passenger_gender,passenger_password,passenger_passport_number,"+
-                        "passenger_Citiznship,passenger_Residence,createdAt,updatedAt)" +
+                        "passenger_Balance,passenger_Residence,createdAt,updatedAt)" +
                         " VALUES( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
                 String[] Name = FullName.getText().split(" ");
+                Random n = new Random(1000);
                 PreparedStatement p = st.getConnection().prepareStatement(sql);
                 p.setString(1, Name[0]);
                 p.setString(2, Name.length > 1 ? Name[1] : " ");
@@ -138,7 +145,7 @@ public class SignUp_Controller implements Initializable {
                 p.setString(5, Gender.getText());
                 p.setString(6, bcryptHashString);
                 p.setString(7, PassportNo.getText());
-                p.setString(8, " ");
+                p.setInt(8, (int)(2980.0+n.nextDouble(700)));
                 p.setString(9, " ");
                 p.setDate(10, Date.valueOf(LocalDate.now()));
                 p.setDate(11, Date.valueOf(LocalDate.now()));

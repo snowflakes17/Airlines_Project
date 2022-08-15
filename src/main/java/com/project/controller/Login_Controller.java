@@ -14,6 +14,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
@@ -55,6 +56,8 @@ public class Login_Controller implements Initializable {
     private ImageView Choose_User;
 
     @FXML
+    private Label err;
+    @FXML
     private ImageView usr_name_bg;
     @FXML
     private MFXButton Login;
@@ -88,19 +91,19 @@ public class Login_Controller implements Initializable {
             fd.setToValue(1);
             fd.playFromStart();
         }
-        TranslateTransition lbl = new TranslateTransition(Duration.millis(1000),Login_Lbl);
+        TranslateTransition lbl = new TranslateTransition(Duration.millis(1100),Login_Lbl);
         lbl.setFromY(y.getTranslateY());
-        lbl.setToY(y.getTranslateY() - 60);
+        lbl.setToY(y.getTranslateY() - 75);
         lbl.playFromStart();
-        TranslateTransition s = new TranslateTransition(Duration.millis(600),y);
+        TranslateTransition s = new TranslateTransition(Duration.millis(700),y);
         s.setFromY(y.getTranslateY());
-        s.setToY(y.getTranslateY() - 80);
+        s.setToY(y.getTranslateY() - 95);
         s.playFromStart();
-        TranslateTransition sa = new TranslateTransition(Duration.millis(600),y);
-        sa.setDelay(Duration.millis(600));
-        sa.setFromX(y.getTranslateX());
-        sa.setToX(y.getTranslateX() - x);
-        sa.playFromStart();
+//        TranslateTransition sa = new TranslateTransition(Duration.millis(600),y);
+//        sa.setDelay(Duration.millis(600));
+//        sa.setFromX(y.getTranslateX());
+//        sa.setToX(y.getTranslateX() - x);
+//        sa.playFromStart();
         y.setDisable(true);
     }
     @FXML
@@ -146,16 +149,15 @@ public class Login_Controller implements Initializable {
                         }
                     }
                     else {
-                        System.out.println("Wrong password combination");
+                        err.setText("Wrong password combination");
+                        err.setVisible(true);
                     }
                 }
-                else {
-                    System.out.println("SQL ERROR");
-                }
             }
-            else {
-                System.out.println("No user found with this email");
-            }
+        }
+        else {
+            err.setText("No user found with this email");
+            err.setVisible(true);
         }
     }
 

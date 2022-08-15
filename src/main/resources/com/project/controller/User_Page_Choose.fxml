@@ -269,7 +269,7 @@
                   <Image url="@Assests/black.png" />
                </image>
             </ImageView>
-            <Label fx:id="Choosen" alignment="CENTER" contentDisplay="CENTER" layoutX="285.0" layoutY="228.0" prefHeight="73.0" prefWidth="76.0" style="-fx-text-fill: #F2994A; -fx-font-size: 3.5em;" styleClass="label-main" text="3F" textAlignment="CENTER" textFill="WHITE" visible="false" />
+            <Label fx:id="Choosen" alignment="CENTER" contentDisplay="CENTER" layoutX="285.0" layoutY="228.0" prefHeight="73.0" prefWidth="76.0" style="-fx-text-fill: #F2994A; -fx-font-size: 3.5em;" styleClass="label-main" text="none" textAlignment="CENTER" textFill="WHITE" visible="false" />
             <Label fx:id="label_warn1" layoutX="430.0" layoutY="238.0" prefHeight="23.0" prefWidth="122.0" style="-fx-font-size: 0.9em;" styleClass="label-main" text="Seat already place" visible="false" />
             <Label fx:id="label_warn2" layoutX="273.0" layoutY="178.0" prefHeight="23.0" prefWidth="285.0" style="-fx-font-size: 0.9em;" styleClass="label-main" text="Click your desired seat in the image on the left" visible="false" />
             <Label fx:id="label_warn3" layoutX="430.0" layoutY="253.0" prefHeight="23.0" prefWidth="99.0" style="-fx-font-size: 0.9em;" styleClass="label-main" text="Please choose" visible="false" />
@@ -292,7 +292,7 @@
                   <Image url="@Assests/bi_patch-check-fill.png" />
                </image>
             </ImageView>
-            <MFXButton fx:id="Pay1" disable="true" layoutX="75.0" layoutY="340.0" onMouseClicked="#pay" prefHeight="40.0" prefWidth="458.0" styleClass="btn1" stylesheets="@Assests/approve.css" text="Get Ticket" visible="false" />
+            <MFXButton fx:id="Pay1" disable="true" layoutX="75.0" layoutY="340.0" onMouseClicked="#GetTicket" prefHeight="40.0" prefWidth="458.0" styleClass="btn1" stylesheets="@Assests/approve.css" text="Get Ticket" visible="false" />
             <Label fx:id="TD" disable="true" layoutX="76.0" layoutY="136.0" prefHeight="27.0" prefWidth="151.0" styleClass="label-main" text="Ticket Details" visible="false" />
             <ImageView fx:id="nothing71" disable="true" fitHeight="4.0" fitWidth="472.0" layoutX="76.0" layoutY="165.0" visible="false">
                <image>
@@ -305,12 +305,12 @@
             <Label fx:id="dummy4" disable="true" layoutX="76.0" layoutY="290.0" prefHeight="27.0" prefWidth="159.0" text="Passenger Name :" underline="true" visible="false" />
             <Label fx:id="dummy5" disable="true" layoutX="328.0" layoutY="185.0" prefHeight="27.0" prefWidth="58.0" text="Seat :" underline="true" visible="false" />
             <Label fx:id="dummy6" disable="true" layoutX="328.0" layoutY="221.0" prefHeight="27.0" prefWidth="68.0" styleClass="label-main" text="Price : " underline="true" visible="false" />
-            <Label fx:id="TicketNo" disable="true" layoutX="176.0" layoutY="185.0" prefHeight="27.0" prefWidth="124.0" text="no" visible="false" />
-            <Label fx:id="Source" disable="true" layoutX="154.0" layoutY="220.0" prefHeight="27.0" prefWidth="124.0" text="no" visible="false" />
-            <Label fx:id="Destination" disable="true" layoutX="196.0" layoutY="254.0" prefHeight="27.0" prefWidth="124.0" text="no" visible="false" />
-            <Label fx:id="Name5" disable="true" layoutX="242.0" layoutY="291.0" prefHeight="27.0" prefWidth="124.0" text="no" visible="false" />
-            <Label fx:id="Seat" disable="true" layoutX="386.0" layoutY="185.0" prefHeight="27.0" prefWidth="124.0" text="no" visible="false" />
-            <Label fx:id="price" disable="true" layoutX="396.0" layoutY="221.0" prefHeight="27.0" prefWidth="124.0" style="-fx-text-fill: brown;" styleClass="label-main" text="\$ 1230.12" visible="false" />
+            <Label fx:id="TicketNo" disable="true" layoutX="176.0" layoutY="185.0" prefHeight="27.0" prefWidth="130.0" text="no" visible="false" />
+            <Label fx:id="Source" disable="true" layoutX="154.0" layoutY="220.0" prefHeight="27.0" prefWidth="130.0" text="no" visible="false" />
+            <Label fx:id="Destination" disable="true" layoutX="196.0" layoutY="254.0" prefHeight="27.0" prefWidth="130.0" text="no" visible="false" />
+            <Label fx:id="Name5" disable="true" layoutX="242.0" layoutY="291.0" prefHeight="27.0" prefWidth="130.0" text="no" visible="false" />
+            <Label fx:id="Seat" disable="true" layoutX="386.0" layoutY="185.0" prefHeight="27.0" prefWidth="130.0" text="no" visible="false" />
+            <Label fx:id="price" disable="true" layoutX="396.0" layoutY="221.0" prefHeight="27.0" prefWidth="130.0" style="-fx-text-fill: brown;" styleClass="label-main" text="\$ 1230.12" visible="false" />
             <Label fx:id="errBalance" disable="true" layoutX="341.0" layoutY="317.0" prefHeight="27.0" prefWidth="196.0" style="-fx-text-fill: brown;" styleClass="label-main" text="Check Your Balance" visible="false" />
          </children></AnchorPane>
    </left>
@@ -341,7 +341,7 @@
             </ImageView>
             <MFXButton id="logout" fx:id="Logout" layoutX="166.0" layoutY="370.0" onMouseClicked="#Logout" prefHeight="40.0" prefWidth="80.0" style="-fx-font-size: 17;" styleClass="btn" text="Logout" />
             <Label layoutX="18.0" layoutY="322.0" prefHeight="27.0" prefWidth="87.0" styleClass="label-main" stylesheets="@Assests/Fx.css" text="Balance :" textOverrun="CENTER_WORD_ELLIPSIS" />
-            <Label fx:id="Email1" accessibleText="Name Will Be Here" layoutX="116.0" layoutY="323.0" prefHeight="26.0" prefWidth="55.0" stylesheets="@Assests/Fx.css" text="\$25" textOverrun="CENTER_WORD_ELLIPSIS" />
+            <Label fx:id="Email1" accessibleText="Name Will Be Here" layoutX="117.0" layoutY="323.0" prefHeight="26.0" prefWidth="103.0" stylesheets="@Assests/Fx.css" text="\$25" textOverrun="CENTER_WORD_ELLIPSIS" />
          </children>
       </AnchorPane>
    </right>

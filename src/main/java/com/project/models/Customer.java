@@ -14,7 +14,7 @@ public class Customer implements User {
     private String email;
     private String password;
     private final Date dateOfBirth;
-    private String countryOfCitiznship;
+    private Double Balance;
     private String gender;
     private String countryOfResidence;
     private final Date createdAt;
@@ -29,7 +29,7 @@ public class Customer implements User {
         this.lastName = DataSet.getString("passenger_last_name");
         this.password = DataSet.getString("passenger_password");
         this.dateOfBirth = DataSet.getDate("passenger_dateOfBirth");
-        this.countryOfCitiznship = DataSet.getString("passenger_Citiznship");
+        this.Balance = DataSet.getDouble("passenger_Balance");
         this.countryOfResidence = DataSet.getString("passenger_Residence");
         this.passportNumber = DataSet.getString("passenger_passport_number");
         this.gender = DataSet.getString("passenger_gender");
@@ -43,7 +43,7 @@ public class Customer implements User {
         this.lastName = null;
         this.password = null;
         this.dateOfBirth = null;
-        this.countryOfCitiznship = null;
+        this.Balance = 0.0;
         this.countryOfResidence = null;
         this.passportNumber = null;
         this.gender = null;

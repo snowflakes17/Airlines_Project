@@ -115,7 +115,7 @@
                </image>
             </ImageView>
             <MFXButton id="logout" fx:id="Logout" layoutX="166.0" layoutY="370.0" onMouseClicked="#Logout" prefHeight="40.0" prefWidth="80.0" style="-fx-font-size: 17;" styleClass="btn" text="Logout" />
-            <Label fx:id="Email1" accessibleText="Name Will Be Here" layoutX="118.0" layoutY="322.0" prefHeight="26.0" prefWidth="124.0" stylesheets="@Assests/Fx.css" text="\$25" textOverrun="CENTER_WORD_ELLIPSIS" />
+            <Label fx:id="Balance" accessibleText="Name Will Be Here" layoutX="118.0" layoutY="322.0" prefHeight="26.0" prefWidth="124.0" stylesheets="@Assests/Fx.css" text="\$25" textOverrun="CENTER_WORD_ELLIPSIS" />
             <Label layoutX="17.0" layoutY="321.0" prefHeight="27.0" prefWidth="90.0" styleClass="label-main" stylesheets="@Assests/Fx.css" text="Balance:" textOverrun="CENTER_WORD_ELLIPSIS" />
          </children>
       </AnchorPane>

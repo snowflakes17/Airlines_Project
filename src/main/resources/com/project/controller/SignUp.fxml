@@ -121,6 +121,11 @@
                </font>
             </Label>
             <MFXComboBox fx:id="Gender" editable="false" floatMode="BORDER" floatingText="  Gender" layoutX="489.0" layoutY="266.0" prefHeight="57.0" prefWidth="173.0" scrollOnOpen="true" styleClass="signup-txtfield" />
+            <Label fx:id="Must5" contentDisplay="CENTER" disable="true" layoutX="447.0" layoutY="324.0" lineSpacing="2.0" prefHeight="24.0" prefWidth="134.0" style="-fx-text-fill: black;" text="* must be filled" textAlignment="CENTER" underline="true" visible="false">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
    </center>

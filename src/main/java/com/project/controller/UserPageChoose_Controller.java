@@ -22,10 +22,13 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.time.Duration;
+import java.time.LocalDate;
 import java.util.*;
 
 public class UserPageChoose_Controller {
@@ -299,6 +302,8 @@ public class UserPageChoose_Controller {
         user_Name.setText(customer.getFirstName() + customer.getLastName());
         Email.setText(customer.getEmail());
         Name.setText(customer.getFirstName() + " / " + customer.getLastName());
+        Email1.setText(String.valueOf(customer.getBalance()));
+        Seat.setText(Choosen.getText());
     }
 
     @FXML
@@ -359,6 +364,7 @@ public class UserPageChoose_Controller {
                 }
             }
             ((ImageView)event.getSource()).setOpacity(1);
+            Seat.setText(covers.get((ImageView)event.getSource()));
             PlaceSeat.setDisable(false);
         }
         else{
@@ -441,7 +447,38 @@ public class UserPageChoose_Controller {
     }
 
     @FXML
-    void gotopay(MouseEvent event) {
+    void gotopay(MouseEvent event) throws SQLException {
+        Map<String, Boolean> covers = new HashMap<String, Boolean>();
+        covers.put("2A",true);
+        covers.put("2D",true);
+        covers.put("2F",true);
+        covers.put("3F",true);
+        covers.put("3D",true);
+        covers.put("3A",true);
+        covers.put("4A",true);
+        covers.put("4D",true);
+        covers.put("4F",true);
+        covers.put("5A",true);
+        covers.put("5D",true);
+        covers.put("5F",true);
+        covers.put("6A",true);
+        covers.put("6D",true);
+        covers.put("6F",true);
+        covers.put("7A",true);
+        covers.put("7D",true);
+        covers.put("7F",true);
+        covers.put("8A",true);
+        covers.put("8D",true);
+        covers.put("8F",true);
+        covers.put("9A",true);
+        covers.put("9D",true);
+        covers.put("9F",true);
+        covers.put("10A",true);
+        covers.put("10D",true);
+        covers.put("10F",true);
+        covers.put("11A",true);
+        covers.put("11D",true);
+        covers.put("11F",true);
         ArrayList<Node> off= new ArrayList<Node>();
         off.add(nothing1);
         off.add(nothing2);
@@ -476,10 +513,40 @@ public class UserPageChoose_Controller {
         off.add(Source);
         off.add(Destination);
         off.add(Seat);
-        off.add(Pay);
+        off.add(Pay1);
         for (Node node:off) {
             node.setVisible(true);
             node.setDisable(false);
+        }
+        if (customer.getBalance() < flight.getFlightPrice()){
+            Pay1.setDisable(true);
+        }
+        Random n = new Random();
+        TicketNo.setText("TID" + (n.nextInt(100)));
+        Source.setText(flight.getFlightFrom());
+        Destination.setText(flight.getFlightTo());
+        Name5.setText(customer.getFirstName() + " " + customer.getLastName());
+        price.setText("$" + flight.getFlightPrice());
+
+        if (Seat.getText().equals("none")) {
+            Statement s = ConnectDB.getConnection();
+            PreparedStatement p = s.getConnection().prepareStatement("select * from `Ticket`");
+            ResultSet u = p.executeQuery();
+            while (u.next()) {
+                for (String r :
+                        covers.keySet()) {
+                    if (r.equals(u.getString("seat_row"))) {
+                        covers.put(r, false);
+                    }
+                }
+            }
+
+            for (String f :
+                    covers.keySet()) {
+                if (covers.get(f)) {
+                    Seat.setText(f);
+                }
+            }
         }
     }
 
@@ -502,8 +569,9 @@ public class UserPageChoose_Controller {
             UserPageMyFlight_Controller a= loader.getController();
             a.setCustomer(customer);
         }
-        if (to.equals("User_Page_Choose.fxml")){
-
+        if (to.equals("User_Page.fxml")){
+            UserPage_Controller a= loader.getController();
+            a.setCustomer(customer);
         }
         try {
             switchPage(event);
@@ -605,7 +673,17 @@ public class UserPageChoose_Controller {
     }
 
     @FXML
-    void pay(MouseEvent event) {
-
+    void GetTicket(MouseEvent event) throws SQLException, IOException, InterruptedException {
+        if (customer.getBalance() > flight.getFlightPrice()){
+            customer.setBalance(customer.getBalance() - flight.getFlightPrice());
+            Email1.setText(String.valueOf(customer.getBalance()));
+            Statement s = ConnectDB.getConnection();
+            PreparedStatement get_email = s.getConnection().prepareStatement("INSERT INTO `Ticket`(ticket_id,passenger_id,flight_number,purchase_date,seat_row) values ('"+TicketNo.getText() + "', " + customer.getUserId() + ", "  + flight.getFlightNumber() + ", '" + Date.valueOf(LocalDate.now()) + "', '" + Seat.getText() +"')");
+            get_email.execute();
+            switchTo(event, "User_Page.fxml");
+        }
+        else {
+            errBalance.setVisible(true);
+        }
     }
 }

@@ -2,6 +2,7 @@ package com.project.controller;
 
 import com.project.models.Customer;
 import com.project.models.Flight;
+import com.project.models.Ticket;
 import io.github.palexdev.materialfx.controls.MFXButton;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -36,7 +37,7 @@ public class UserPageMyFlight_Controller implements Initializable {
 
     private Customer customer;
 
-    private ObservableList<Flight> ResultList = FXCollections.observableArrayList();
+    private ObservableList<Ticket> ResultList = FXCollections.observableArrayList();
 
     public void setCustomer(Customer customer) throws SQLException {
         this.customer = customer;
@@ -77,13 +78,16 @@ public class UserPageMyFlight_Controller implements Initializable {
     private TextField Ref;
 
     @FXML
-    private TableView<Flight> Table;
+    private TableView<Ticket> Table;
 
     @FXML
-    private TableColumn<Flight, Date> date;
+    private TableColumn<Ticket, Date> date;
 
     @FXML
-    private TableColumn<Flight, String> from;
+    private TableColumn<Ticket, String> seat;
+
+    @FXML
+    private TableColumn<Ticket, String> from;
 
     @FXML
     private TextField last_name;
@@ -119,8 +123,8 @@ public class UserPageMyFlight_Controller implements Initializable {
 
     }
 
-    public void setFlights(ArrayList<Flight> flights) throws SQLException {
-        for (Flight f:
+    public void setFlights(ArrayList<Ticket> flights) throws SQLException {
+        for (Ticket f:
                 flights) {
             ResultList.add(f);
         }
@@ -179,10 +183,11 @@ public class UserPageMyFlight_Controller implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        F_No.setCellValueFactory(new PropertyValueFactory<>("flightNumber"));
-        to.setCellValueFactory(new PropertyValueFactory<>("flightTo"));
-        from.setCellValueFactory(new PropertyValueFactory<>("flightFrom"));
-        date.setCellValueFactory(new PropertyValueFactory<>("flightStartTime"));
+        F_No.setCellValueFactory(new PropertyValueFactory<>("ticket_id"));
+        to.setCellValueFactory(new PropertyValueFactory<>("passenger_id"));
+        from.setCellValueFactory(new PropertyValueFactory<>("flight_number"));
+        date.setCellValueFactory(new PropertyValueFactory<>("purchase_date"));
+        seat.setCellValueFactory(new PropertyValueFactory<>("seat_row"));
         Table.setItems(ResultList);
     }
 }

@@ -31,6 +31,7 @@ public class UserPageCheckInController {
         this.customer = customer;
         user_Name.setText(customer.getFirstName() + customer.getLastName());
         Email.setText(customer.getEmail());
+        Balance.setText(String.valueOf(customer.getBalance()));
     }
     @FXML
     private ImageView Book;
@@ -46,6 +47,9 @@ public class UserPageCheckInController {
 
     @FXML
     private Label Email;
+
+    @FXML
+    private Label Balance;
 
     @FXML
     private TextField Last;

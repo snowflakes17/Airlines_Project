@@ -12,6 +12,7 @@ import java.util.ResourceBundle;
 
 import com.project.models.Customer;
 import com.project.models.Flight;
+import com.project.models.Ticket;
 import io.github.palexdev.materialfx.controls.MFXButton;
 import io.github.palexdev.materialfx.controls.MFXListView;
 import javafx.scene.input.InputMethodEvent;
@@ -39,12 +40,7 @@ public class UserPage_Controller implements Initializable{
     private Customer customer;
     private ObservableList<Flight> ResultList = FXCollections.observableArrayList();
 
-    ObservableList<String> options =
-            FXCollections.observableArrayList(
-                    "Option 1",
-                    "Option 2",
-                    "Option 3"
-            );
+
     @FXML
     private ImageView Book;
 
@@ -146,10 +142,14 @@ public class UserPage_Controller implements Initializable{
     @FXML
     private Label user_Name;
 
+    @FXML
+    private Label Email1;
+
     public void setCustomer(Customer customer) throws SQLException {
         this.customer = customer;
         user_Name.setText(customer.getFirstName() + customer.getLastName());
         Email.setText(customer.getEmail());
+        Email1.setText("$" + customer.getBalance());
     }
 
     public void setFlights(ArrayList<Flight> flights) throws SQLException {
@@ -255,9 +255,14 @@ public class UserPage_Controller implements Initializable{
         if (to.equals("User_Page_My_Trip.fxml")){
             UserPageMyFlight_Controller a= loader.getController();
             a.setCustomer(customer);
-        }
-        if (to.equals("User_Page_Choose.fxml")){
-
+            Statement s = ConnectDB.getConnection();
+            PreparedStatement m = s.getConnection().prepareStatement("select * from `Ticket` where passenger_id = " + customer.getUserId());
+            ResultSet u = m.executeQuery();
+            while (u.next()){
+                ArrayList<Ticket> n = new ArrayList<Ticket>();
+                n.add(new Ticket(u));
+                a.setFlights(n);
+            }
         }
         try {
             switchPage(event);
@@ -271,7 +276,7 @@ public class UserPage_Controller implements Initializable{
     public void switchTo(MouseEvent event, String to, Flight f) throws IOException, SQLException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource(to));
         root = loader.load();
-        UserPageChoose_Controller a= loader.getController();
+        UserPageChoose_Controller a = loader.getController();
         a.setName(customer);
         a.setFlight(f);
         try {
