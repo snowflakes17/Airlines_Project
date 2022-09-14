@@ -21,6 +21,11 @@ This desktop application abels users or passengers to register and use the accou
 - Book A Flight
 - Select A seat on the plane you choose
 
+## Previews
+
+![Login and Sign Up page](https://github.com/Nahom-Derese/Airlines_Project/blob/master/src/main/resources/com/project/controller/Assests/output.gif?raw=true)
+
+![Book and Select a seat](https://github.com/Nahom-Derese/Airlines_Project/blob/master/src/main/resources/com/project/controller/Assests/output2.gif?raw=true)
 
 ## Tech
 
