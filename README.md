@@ -1,4 +1,4 @@
-![Banner](https://github.com/Nahom-Derese/Airlines_Project/src/resources/Assests/blob/master/%E2%9C%88_Airlines_Management_System.png?raw=true)
+![Banner](https://github.com/Nahom-Derese/Airlines_Project/blob/master/src/main/resources/com/project/controller/Assests/%E2%9C%88_Airlines_Management_System.png?raw=true)
 ![Book Status](https://img.shields.io/badge/book-destination-succes) ![Place](https://img.shields.io/badge/place-seat-orange) ![functional](https://img.shields.io/badge/important-functional-blue)
 ![Book Status](https://img.shields.io/badge/get-ticket-yellow) ![Place](https://img.shields.io/badge/made_with-java-green) 
 ![stars](https://img.shields.io/github/stars/Nahom-Derese/Airlines_Project?style=flat-square) ![LICENSE](https://img.shields.io/github/license/Nahom-Derese/Airlines_Project?color=red&style=flat-square)
