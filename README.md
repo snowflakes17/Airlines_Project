@@ -25,11 +25,11 @@ This desktop application abels users or passengers to register and use the accou
 
 - Login and Sign Up pages Preview 
 
-![Login and Sign Up page](https://github.com/Nahom-Derese/Airlines_Project/blob/master/src/main/resources/com/project/controller/Assests/Login and SignUp.mkv?raw=true)
+![Login and Sign Up page](https://github.com/Nahom-Derese/Airlines_Project/blob/master/src/main/resources/com/project/controller/Assests/Login%20and%20SignUp.mkv?raw=true)
 
 - Booking a flight and Placing a seat
 
-![Book and Select a seat](https://github.com/Nahom-Derese/Airlines_Project/blob/master/src/main/resources/com/project/controller/Assests/Other parts.mkv?raw=true)
+![Book and Select a seat](https://github.com/Nahom-Derese/Airlines_Project/blob/master/src/main/resources/com/project/controller/Assests/Other%20parts.mkv?raw=true)
 
 ## Tech
 
